@@ -1,0 +1,236 @@
+.pricing {
+  padding: var(--space-8) 0;
+  background: var(--color-white);
+  display: flex;
+  align-items: center;
+}
+
+
+
+.header {
+  text-align: center;
+  margin-bottom: var(--space-16);
+}
+
+.tiers {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-8);
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.tier {
+  background: var(--color-gray-100);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  position: relative;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.pro {
+  background: var(--color-background-gradient);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-lg);
+}
+
+
+
+.tierHeader {
+  text-align: left;
+  margin-bottom: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.proHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  gap: var(--space-4);
+}
+
+.titlePriceContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.tierName {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.proStar {
+  color: var(--color-blue-600);
+  font-size: var(--font-size-lg);
+}
+
+.priceContainer {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: var(--space-1);
+}
+
+.price {
+  font-size: var(--font-size-3xl);
+  font-weight: 600;
+  color: var(--color-blue-600);
+  line-height: 1;
+}
+
+.priceFree {
+  color: var(--color-text);
+}
+
+.period {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.tierDescription {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+}
+
+.features {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+}
+
+.checkIcon {
+  color: var(--color-blue-600);
+  flex-shrink: 0;
+  background: var(--color-blue-100);
+  border-radius: 50%;
+  padding: var(--space-1);
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkIconBasic {
+  color: var(--color-gray-500);
+  background: var(--color-gray-200);
+}
+
+.billingToggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  justify-content: center;
+  height: 28px;
+}
+
+.toggleLabel {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.toggleButton {
+  position: relative;
+  width: 36px;
+  height: 20px;
+  background: var(--color-gray-300);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 5px;
+}
+
+.toggleButton.toggleActive {
+  background: var(--color-blue-600);
+}
+
+.toggleSlider {
+  width: 10px;
+  height: 10px;
+  background: var(--color-white);
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.toggleButton.toggleActive .toggleSlider {
+  transform: translateX(16px);
+}
+
+.savingsBadge {
+  background: var(--color-yellow-600);
+  color: var(--color-white);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-md);
+}
+
+.footer {
+  text-align: center;
+}
+
+.footerText {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-base);
+  margin: 0;
+  padding: var(--space-12) 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .pricing {
+    padding: 0;
+  }
+  
+  .tiers {
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+  
+  .tier {
+    padding: var(--space-8) var(--space-5);
+  }
+  
+  .pro {
+    transform: none;
+  }
+  
+  .pro:hover {
+    transform: translateY(-5px);
+  }
+}
+
+@media (max-width: 480px) {
+  .price {
+    font-size: var(--font-size-4xl);
+  }
+  
+  .tier {
+    padding: var(--space-8) var(--space-6);
+  }
+} 

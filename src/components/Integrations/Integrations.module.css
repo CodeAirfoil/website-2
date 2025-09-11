@@ -1,0 +1,250 @@
+.integrations {
+  padding: var(--space-24) 0;
+  background: var(--color-gray-50);
+}
+
+.integrationsHeader {
+  text-align: center;
+  margin-bottom: var(--space-16);
+}
+
+.integrationsTitle {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-4);
+  line-height: 1.2;
+}
+
+.integrationsSubtitle {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+.integrationsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--space-8);
+  margin-bottom: var(--space-12);
+}
+
+.integrationCard {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.integrationCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary);
+}
+
+.integrationIcon {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-6);
+  position: relative;
+}
+
+.integrationCard:nth-child(1) .integrationIcon {
+  background: linear-gradient(135deg, #635BFF 0%, #5b56f0 100%);
+}
+
+.integrationCard:nth-child(2) .integrationIcon {
+  background: linear-gradient(135deg, #1A73E8 0%, #4285F4 100%);
+}
+
+.stripeIcon {
+  filter: brightness(0) invert(1);
+}
+
+.googleIcon {
+  /* Google Calendar icon is already colorful, no filter needed */
+  display: block;
+}
+
+.integrationContent {
+  flex: 1;
+}
+
+.integrationTitle {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--space-3);
+}
+
+.integrationDescription {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--space-4);
+}
+
+.integrationFeatures {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-6) 0;
+}
+
+.integrationFeatures li {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-2);
+  padding-left: var(--space-6);
+  position: relative;
+}
+
+.integrationFeatures li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--color-green-600);
+  font-weight: 600;
+}
+
+.integrationBadge {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+}
+
+.integrationCard:nth-child(2) .integrationBadge {
+  background: var(--color-blue-600);
+}
+
+.badgeText {
+  display: block;
+}
+
+.comingSoonCard {
+  background: linear-gradient(135deg, var(--color-gray-100) 0%, var(--color-gray-200) 100%);
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.comingSoonCard:hover {
+  border-color: var(--color-primary);
+  background: linear-gradient(135deg, var(--color-gray-50) 0%, var(--color-gray-100) 100%);
+}
+
+.comingSoonContent {
+  max-width: 300px;
+}
+
+.comingSoonTitle {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--space-3);
+}
+
+.comingSoonDescription {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  margin-bottom: var(--space-4);
+}
+
+.comingSoonLogos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  justify-content: center;
+}
+
+.placeholderLogo {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.integrationsFooter {
+  text-align: center;
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--color-border);
+}
+
+.footerText {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.footerLink {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.footerLink:hover {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .integrations {
+    padding: var(--space-16) 0;
+  }
+
+  .integrationsGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .integrationCard {
+    padding: var(--space-6);
+  }
+
+  .integrationsTitle {
+    font-size: var(--font-size-2xl);
+  }
+
+  .integrationsSubtitle {
+    font-size: var(--font-size-base);
+  }
+
+  .integrationIcon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .comingSoonLogos {
+    gap: var(--space-1);
+  }
+
+  .placeholderLogo {
+    font-size: 10px;
+    padding: var(--space-1) var(--space-2);
+  }
+}
+

@@ -1,0 +1,250 @@
+.calendar {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  width: 100%;
+  box-shadow: var(--shadow-md);
+}
+
+.calendarHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calendarTitle {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.currentTime {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  background: var(--color-gray-100);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-sm);
+}
+
+.calendarBody {
+  display: flex;
+  position: relative;
+  min-height: 240px;
+}
+
+.timeColumn {
+  width: 60px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.timeSlot {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  position: relative;
+}
+
+.timeSlot::after {
+  content: '';
+  position: absolute;
+  left: 50px;
+  right: -10px;
+  top: 50%;
+  height: 1px;
+  background: var(--color-border-light);
+  z-index: 1;
+}
+
+.eventsColumn {
+  flex: 1;
+  position: relative;
+  margin-left: var(--space-4);
+}
+
+.currentTimeIndicator {
+  position: absolute;
+  left: -10px;
+  background: var(--color-red-600);
+  height: 1px;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  animation: currentTimeSlide 0.8s ease-out 1.5s forwards;
+}
+
+@keyframes currentTimeSlide {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.currentTimeDot {
+  width: 8px;
+  height: 8px;
+  background: var(--color-red-600);
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: pulse 2s infinite;
+}
+
+.currentTimeLine {
+  flex: 1;
+  margin-left: var(--space-2);
+}
+
+.event {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: var(--color-blue-100);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  margin: 0 var(--space-1);
+  z-index: 5;
+  border-left: 3px solid var(--color-blue-500);
+  opacity: 0;
+  transform: translateX(-20px) scale(0.95);
+  animation: eventSlideIn 0.6s ease-out forwards;
+}
+
+.eventBlue {
+  background: var(--color-blue-100);
+  border-left-color: var(--color-blue-600);
+}
+
+.eventGreen {
+  background: var(--color-green-100);
+  border-left-color: var(--color-green-600);
+}
+
+.eventPurple {
+  background: var(--color-purple-100);
+  border-left-color: var(--color-purple-600);
+}
+
+.eventOrange {
+  background: var(--color-yellow-100);
+  border-left-color: var(--color-yellow-600);
+}
+
+.eventContent {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  height: 100%;
+}
+
+.eventIcon {
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  flex-shrink: 0;
+  border: 1px solid var(--color-border-light);
+}
+
+.eventDetails {
+  flex: 1;
+  min-width: 0;
+}
+
+.eventTitle {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  line-height: 1.3;
+  margin-bottom: var(--space-1);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.eventTime {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  font-weight: 400;
+}
+
+/* Animations */
+@keyframes eventSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .calendar {
+    padding: var(--space-4);
+    max-width: 100%;
+  }
+
+  .calendarHeader {
+    margin-bottom: var(--space-4);
+  }
+
+  .calendarTitle {
+    font-size: var(--font-size-md);
+  }
+
+  .timeColumn {
+    width: 50px;
+  }
+
+  .timeSlot {
+    height: 50px;
+    font-size: var(--font-size-xxs);
+  }
+
+  .event {
+    padding: var(--space-2);
+  }
+
+  .eventTitle {
+    font-size: var(--font-size-xs);
+  }
+}

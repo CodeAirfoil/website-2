@@ -1,0 +1,82 @@
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Variants */
+.variantDefault {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-light);
+}
+
+.variantElevated {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-light);
+  box-shadow: var(--shadow-md);
+}
+
+.variantOutlined {
+  background: transparent;
+  border: 2px solid var(--color-border);
+}
+
+.variantGhost {
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+/* Sizes */
+.sizeSm {
+  padding: var(--space-4);
+}
+
+.sizeMd {
+  padding: var(--space-6);
+}
+
+.sizeLg {
+  padding: var(--space-8);
+}
+
+/* Interactive states */
+.interactive {
+  cursor: pointer;
+}
+
+.interactive:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.interactive:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.interactive:active {
+  transform: translateY(0);
+}
+
+/* Focus styles for keyboard navigation */
+.card[role="button"]:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sizeSm {
+    padding: var(--space-3);
+  }
+  
+  .sizeMd {
+    padding: var(--space-4);
+  }
+  
+  .sizeLg {
+    padding: var(--space-6);
+  }
+} 

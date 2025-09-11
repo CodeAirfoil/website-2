@@ -1,0 +1,139 @@
+.projectStats {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: 100%;
+  position: relative;
+}
+
+.statCard {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  border: 1px solid var(--color-border);
+  position: relative;
+  z-index: 1;
+  box-shadow: var(--shadow-md);
+}
+
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-8);
+}
+
+.cardTitle {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-text);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.percentage {
+  font-size: var(--font-size-xl);
+  font-weight: 500;
+  color: var(--color-text);
+  line-height: 1;
+}
+
+.progressBar {
+  width: 100%;
+  height: 6px;
+  background: var(--color-gray-100);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-bottom: var(--space-4);
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.25s linear;
+  position: relative;
+}
+
+.progressFill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Color variants */
+.colorGreen {
+  background: #10b981;
+}
+
+.colorBlue {
+  background: #3b82f6;
+}
+
+.colorOrange {
+  background: #f59e0b;
+}
+
+.description {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .projectStats {
+    gap: var(--space-6);
+  }
+
+  .statCard {
+    padding: var(--space-6);
+  }
+
+  .cardTitle {
+    font-size: var(--font-size-sm);
+  }
+
+  .percentage {
+    font-size: var(--font-size-xl);
+  }
+
+  .description {
+    font-size: var(--font-size-xs);
+  }
+
+  /* Reduce stacked effect on mobile */
+  .card2 {
+    transform: translateY(-4px);
+  }
+
+  .card3 {
+    transform: translateY(-8px);
+  }
+
+  .card2:hover {
+    transform: translateY(-6px);
+  }
+
+  .card3:hover {
+    transform: translateY(-10px);
+  }
+} 

@@ -1,0 +1,136 @@
+.fileCard {
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 16px;
+  width: 100%;
+  max-width: 280px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.fileCard:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.fileIcon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  position: relative;
+}
+
+.fileIcon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* File type specific colors */
+.excelIcon {
+  background: #0F9D58;
+}
+
+.pdfIcon {
+  background: #DC2626;
+}
+
+.docIcon {
+  background: #2563EB;
+}
+
+.imageIcon {
+  background: #8B5CF6;
+}
+
+.videoIcon {
+  background: #059669;
+}
+
+.audioIcon {
+  background: #D97706;
+}
+
+.defaultIcon {
+  background: #6B7280;
+}
+
+.menuButton {
+  background: none;
+  border: none;
+  padding: 4px;
+  border-radius: 4px;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menuButton:hover {
+  background: var(--color-background-secondary);
+  color: var(--color-text);
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.fileName {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fileDetails {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .fileCard {
+    padding: 12px;
+    max-width: 240px;
+  }
+
+  .fileIcon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .fileIcon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .fileName {
+    font-size: var(--font-size-xs);
+  }
+
+  .fileDetails {
+    font-size: 10px;
+  }
+} 

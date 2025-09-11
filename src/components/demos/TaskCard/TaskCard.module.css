@@ -1,0 +1,306 @@
+.taskCard {
+  background: var(--color-white);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  position: relative;
+  transition: all 0.2s ease;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+/* Status variants */
+.statusInProgress {
+  background: var(--color-white);
+  border-color: var(--color-border-light);
+  position: relative;
+  animation: autoDragDemo 6s ease-in-out infinite;
+}
+
+/* Mouse cursor simulation */
+.statusInProgress::before {
+  content: '';
+  position: absolute;
+  top: 24px;
+  left: 26px;
+  width: 16px;
+  height: 16px;
+  background-image: url('/images/cursor.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0;
+  z-index: 10;
+  animation: mouseDemoAnimation 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.statusCompleted {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+}
+
+.statusOverdue {
+  background: #fef2f2;
+  border-color: #ef4444;
+}
+
+.statusPending {
+  background: #fefce8;
+  border-color: #eab308;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.dragHandle {
+  padding: var(--space-1);
+}
+
+.dragHandle:active {
+  cursor: grabbing;
+}
+
+.dots {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 2px;
+  width: 8px;
+  height: 12px;
+}
+
+.dots span {
+  width: 3px;
+  height: 3px;
+  background: var(--color-text-tertiary);
+  border-radius: 50%;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+/* Progress Circle */
+.progressContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.progressCircle {
+  width: 18px;
+  height: 18px;
+  transform: rotate(-90deg);
+}
+
+.progressBackground {
+  fill: none;
+  stroke: var(--color-border-light);
+  stroke-width: 4;
+}
+
+.progressFill {
+  fill: none;
+  stroke: #0ea5e9;
+  stroke-width: 4;
+  stroke-linecap: round;
+  transition: stroke-dasharray 0.3s ease;
+}
+
+.progressText {
+  position: absolute;
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  display: none;
+}
+
+/* Due Date */
+.dueDate {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+/* Priority Flag */
+.priorityFlag {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+}
+
+.priorityHigh {
+  color: #ef4444;
+}
+
+.priorityMedium {
+  color: #f59e0b;
+}
+
+.priorityLow {
+  color: #10b981;
+}
+
+/* Status Icon */
+.statusIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+}
+
+.statusCompleted .statusIcon {
+  color: var(--color-green-600);
+}
+
+.statusInProgress .statusIcon {
+  color: var(--color-green-600);
+}
+
+.statusPending .statusIcon {
+  color: #f59e0b;
+}
+
+/* Content */
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.title {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-text);
+  line-height: 1.3;
+  margin: 0;
+}
+
+.description {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Category Badge */
+.category {
+  align-self: flex-start;
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  color: var(--color-text-tertiary);
+  background: var(--color-background);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-light);
+  display: none;
+}
+
+/* Hover effects */
+.taskCard:hover:not(.statusInProgress) {
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
+}
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .taskCard {
+    padding: var(--space-4);
+    min-height: 100px;
+  }
+
+  .headerRight {
+    gap: var(--space-1);
+  }
+
+  .title {
+    font-size: var(--font-size-sm);
+  }
+
+  .description {
+    font-size: var(--font-size-xs);
+  }
+}
+
+/* Auto Drag Demo Animation */
+@keyframes autoDragDemo {
+  0%, 15% {
+    transform: translateY(0px) rotate(0deg);
+    box-shadow: var(--shadow-md);
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+  }
+  20%, 25% {
+    transform: translateY(-4px) rotate(0.5deg) ;
+
+    background: #e6f3ff70;
+    border: 1px dashed var(--color-blue-600);
+  }
+  30%, 55% {
+    transform: translateY(-12px) translateX(3px) rotate(4deg) ;
+
+    background: #e6f3ff70;
+    border: 1px dashed var(--color-blue-600);
+  }
+  60%, 65% {
+    transform: translateY(-8px) translateX(1px) rotate(1deg) ;
+
+      background: #e6f3ff70;
+    border: 1px dashed var(--color-blue-600);
+  }
+  70%, 100% {
+    transform: translateY(0px) rotate(0deg) ;
+    box-shadow: var(--shadow-md);
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+  }
+}
+
+/* Mouse Cursor Demo Animation */
+@keyframes mouseDemoAnimation {
+  0%, 15% {
+    opacity: 0;
+    transform: translateX(0px) translateY(0px);
+  }
+  20% {
+    opacity: 1;
+    transform: translateX(0px) translateY(0px);
+  }
+  25%, 55% {
+    opacity: 1;
+    transform: translateX(2px) translateY(-8px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(1px) translateY(-4px);
+  }
+  70%, 100% {
+    opacity: 0;
+    transform: translateX(0px) translateY(0px);
+  }
+} 
