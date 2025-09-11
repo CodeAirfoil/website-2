@@ -13,7 +13,7 @@ export default function PricingPage() {
         subtitle="Start free and scale up as you need. No hidden fees, no surprises. Choose the plan that fits your freelance workflow."
         primaryAction={{
           text: "Sign Up",
-          href: "/signup"
+          href: "https://dashboard.airfoil.app"
         }}
       />
       <div id="pricing-plans">

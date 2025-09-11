@@ -21,7 +21,7 @@ const Hero = () => {
                 </svg>
                 Download on Mac
               </a>
-              <a href="/signup" className={`${shared.btn} ${shared.btnPrimary} ${shared.btnLarge} ${styles.heroCta}`}>
+              <a href="https://dashboard.airfoil.app" className={`${shared.btn} ${shared.btnPrimary} ${shared.btnLarge} ${styles.heroCta}`}>
                 Get Started Free
               </a>
             </div>

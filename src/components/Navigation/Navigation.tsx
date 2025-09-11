@@ -64,7 +64,7 @@ const Navigation = () => {
                 )}
               </div>
               
-              <a href="/signup" className={`${shared.btn} ${shared.btnPrimary}`}>
+              <a href="https://dashboard.airfoil.app" className={`${shared.btn} ${shared.btnPrimary}`}>
                 Sign Up
               </a>
             </div>
@@ -98,7 +98,7 @@ const Navigation = () => {
             </div>
             <div className={styles.mobileNavActions}>
               <a href="/login" className={styles.mobileLoginLink}>Login</a>
-              <a href="/signup" className={`${shared.btn} ${shared.btnPrimary}`}>Get Started</a>
+              <a href="https://dashboard.airfoil.app" className={`${shared.btn} ${shared.btnPrimary}`}>Get Started</a>
             </div>
           </div>
         )}
