@@ -9,7 +9,7 @@ const Footer = () => {
           <div className={styles.footerMain}>
             <div className={styles.footerBrand}>
               <div className={styles.footerLogo}>
-                <img src="/images/logo-footer.svg" alt="Airfoil" className={styles.logoImage} />
+                <img src="/images/logos/airfoil-logo-blue.svg" alt="Airfoil" className={styles.logoImage} />
                 <h3 className={styles.logoText}>Airfoil</h3>
               </div>
               <p className={styles.footerDescription}>

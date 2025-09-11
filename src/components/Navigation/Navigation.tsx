@@ -16,11 +16,11 @@ const Navigation = () => {
           <div className={styles.navLogo}>
             <a href="/" className={styles.logoLink}>
               <img 
-                src="/images/airfoil-logo-3.svg" 
+                src="/images/logos/airfoil-logo-dark.svg" 
                 alt="Airfoil" 
                 className={styles.logo}
                 width={23}
-                height={23}
+                height={16}
               />
             </a>
           </div>
