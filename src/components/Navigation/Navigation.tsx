@@ -32,7 +32,7 @@ const Navigation = () => {
               <a href="/pricing" className={styles.navLink}>Pricing</a>
             </div>
             <div className={styles.navActions}>
-              <a href="/login" className={styles.loginLink}>Login</a>
+              <a href="https://dashboard.airfoil.app/auth?mode=login" className={styles.loginLink}>Login</a>
               
               {/* Download Dropdown */}
               <div className={styles.downloadDropdown}>
@@ -64,7 +64,7 @@ const Navigation = () => {
                 )}
               </div>
               
-              <a href="https://dashboard.airfoil.app" className={`${shared.btn} ${shared.btnPrimary}`}>
+              <a href="https://dashboard.airfoil.app/auth?mode=register" className={`${shared.btn} ${shared.btnPrimary}`}>
                 Sign Up
               </a>
             </div>
@@ -97,8 +97,8 @@ const Navigation = () => {
               </a>
             </div>
             <div className={styles.mobileNavActions}>
-              <a href="/login" className={styles.mobileLoginLink}>Login</a>
-              <a href="https://dashboard.airfoil.app" className={`${shared.btn} ${shared.btnPrimary}`}>Get Started</a>
+              <a href="https://dashboard.airfoil.app/auth?mode=login" className={styles.mobileLoginLink}>Login</a>
+              <a href="https://dashboard.airfoil.app/auth?mode=register" className={`${shared.btn} ${shared.btnPrimary}`}>Get Started</a>
             </div>
           </div>
         )}
