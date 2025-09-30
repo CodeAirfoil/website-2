@@ -14,6 +14,9 @@ const Dashboard = ({ className = '' }: DashboardProps) => {
   const [timeProgress, setTimeProgress] = useState(0)
   const [revenueProgress, setRevenueProgress] = useState(0)
 
+  // Time utilization counter state (in minutes)
+  const [timeUtilization, setTimeUtilization] = useState(0)
+
   // Timer state
   const [timerSeconds, setTimerSeconds] = useState(776) // 12 minutes 56 seconds = 776 seconds
   const [isTimerRunning, setIsTimerRunning] = useState(true)
@@ -36,6 +39,7 @@ const Dashboard = ({ className = '' }: DashboardProps) => {
         const taskTarget = 56
         const timeTarget = 10
         const revenueTarget = 15 // Changed from 0 to 15% to show some progress
+        const timeUtilizationTarget = 225 // 3hr 45min = 225 minutes
         
         const progress = currentStep / steps
         
@@ -43,6 +47,7 @@ const Dashboard = ({ className = '' }: DashboardProps) => {
         setTaskProgress(Math.round(taskTarget * progress))
         setTimeProgress(Math.round(timeTarget * progress))
         setRevenueProgress(Math.round(revenueTarget * progress))
+        setTimeUtilization(Math.round(timeUtilizationTarget * progress))
         
         if (currentStep >= steps) {
           clearInterval(interval)
@@ -51,6 +56,7 @@ const Dashboard = ({ className = '' }: DashboardProps) => {
           setTaskProgress(taskTarget)
           setTimeProgress(timeTarget)
           setRevenueProgress(revenueTarget)
+          setTimeUtilization(timeUtilizationTarget)
         }
       }, stepDuration)
     }
@@ -77,6 +83,14 @@ const Dashboard = ({ className = '' }: DashboardProps) => {
     const seconds = totalSeconds % 60
     
     return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
+  }
+
+  // Format time utilization (minutes to "Xhr Xmin")
+  const formatTimeUtilization = (totalMinutes: number) => {
+    const hours = Math.floor(totalMinutes / 60)
+    const minutes = totalMinutes % 60
+    
+    return `${hours}hr ${minutes}min`
   }
 
   return (
@@ -191,14 +205,28 @@ const Dashboard = ({ className = '' }: DashboardProps) => {
 
           <div className={styles.statCard}>
             <div className={styles.statHeader}>
-              <h3 className={styles.statTitle}>Time Utilization</h3>
-              <span className={styles.statValue}>{timeProgress}%</span>
+              <h3 className={styles.statTitle}>Time</h3>
+              <span className={styles.statValue}>{formatTimeUtilization(timeUtilization)}</span>
             </div>
-            <div className={styles.progressContainer}>
-              <div className={styles.progressBar}>
-                <div className={`${styles.progressFill} ${styles.grey}`} style={{ width: `${timeProgress}%` }}></div>
+            <div className={styles.timeUtilizationViz}>
+              <div className={styles.dayBars}>
+                <div className={`${styles.dayBar} ${styles.weekend}`} style={{ '--final-opacity': 1, animationDelay: '0ms' } as React.CSSProperties}></div>
+                <div className={styles.dayBar} style={{ '--final-opacity': 0.4, animationDelay: '100ms' } as React.CSSProperties}></div>
+                <div className={styles.dayBar} style={{ '--final-opacity': 0.6, animationDelay: '200ms' } as React.CSSProperties}></div>
+                <div className={styles.dayBar} style={{ '--final-opacity': 0.8, animationDelay: '300ms' } as React.CSSProperties}></div>
+                <div className={styles.dayBar} style={{ '--final-opacity': 1, animationDelay: '400ms' } as React.CSSProperties}></div>
+                <div className={styles.dayBar} style={{ '--final-opacity': 0.3, animationDelay: '500ms' } as React.CSSProperties}></div>
+                <div className={`${styles.dayBar} ${styles.weekend}`} style={{ '--final-opacity': 1, animationDelay: '600ms' } as React.CSSProperties}></div>
               </div>
-              <p className={styles.statDescription}>4h of 40h estimated</p>
+              <div className={styles.weekDays}>
+                <span className={styles.dayLabel}>S</span>
+                <span className={styles.dayLabel}>M</span>
+                <span className={styles.dayLabel}>T</span>
+                <span className={styles.dayLabel}>W</span>
+                <span className={styles.dayLabel}>T</span>
+                <span className={styles.dayLabel}>F</span>
+                <span className={styles.dayLabel}>S</span>
+              </div>
             </div>
           </div>
 

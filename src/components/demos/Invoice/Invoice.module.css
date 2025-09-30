@@ -15,7 +15,7 @@
   justify-content: space-between;
   align-items: flex-start;
   gap: var(--space-6);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-sm);
 }
 
 .serviceInfo {
@@ -70,7 +70,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-sm);
 }
 
 .summaryRow {
@@ -199,7 +199,7 @@
   font-size: var(--font-size-sm);
   font-weight: 500;
   transition: all 0.2s ease;
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-sm);
   cursor: pointer;
 }
 
@@ -212,7 +212,7 @@
   font-size: var(--font-size-sm);
   font-weight: 500;
   transition: all 0.2s ease;
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-sm);
   cursor: pointer;
   display: flex;
   align-items: center;

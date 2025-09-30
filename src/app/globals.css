@@ -27,7 +27,7 @@
   --color-background-gradient-sunset: radial-gradient(at 20% 30%, #ffffff 0%, transparent 60%), radial-gradient(at 80% 20%, #e2f4ff00 0%, transparent 55%), radial-gradient(at 50% 80%, #fff1c1 0%, transparent 60%), radial-gradient(at 60% 40%, #ddf3ff00 0%, transparent 70%), radial-gradient(at 40% 60%, #fff6f2 0%, transparent 80%), radial-gradient(at 30% 70%, #fff9f1 0%, transparent 60%), linear-gradient(0deg, #ffb888 0%, #ffffff 100%);
   --color-border-gradient: linear-gradient(180deg, rgb(255, 255, 255), rgb(255, 255, 255), #f5f5f500);
   --color-border: #E1E4EA;
-  --color-border-light: rgb(240, 240, 240);
+  --color-border-light: #f3f3f3;
   --color-border-hover: #C9CCD3;
   --color-hover: #f5f5f5;
   --color-active: #f5f5f5;
@@ -102,13 +102,13 @@
   --color-priority-high-bg: var(--color-red-100);
   
   /* Shadows */
-  --shadow-sm: rgba(17, 17, 26, 0.05) 0px 1px 0px;
+  --shadow-sm: rgba(101, 101, 101, 0.04) 0px 2px 0px;
   --shadow-md: 0 2px 12px rgba(82, 82, 82, 0.03);
   --shadow-lg: 0 -10px 30px rgba(66, 66, 66, 0.04);
   
   /* Border radius */
   --radius-sm: 4px;
-  --radius-md: 12px;
+  --radius-md: 8px;
   --radius-lg: 16px;
   --radius-xl: 24px;
   --radius-2xl: 52px;
