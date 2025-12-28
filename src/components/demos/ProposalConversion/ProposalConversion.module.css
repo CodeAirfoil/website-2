@@ -1,0 +1,166 @@
+.conversionDemo {
+  width: 100%;
+}
+
+.conversionContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.proposalCard,
+.projectCard {
+  flex: 1;
+  min-width: 280px;
+    background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cardTitle {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.statusBadge {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-2);
+  background: var(--color-green-100);
+  color: var(--color-success);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+}
+
+.statusBadge svg {
+  flex-shrink: 0;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.itemLabel {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
+
+.itemValue {
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.conversionArrow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+.aiBadge {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.aiBadge svg {
+  flex-shrink: 0;
+}
+
+.arrow {
+  font-size: var(--font-size-2xl);
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.projectItems {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.projectItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.projectItem svg {
+  flex-shrink: 0;
+  color: var(--color-text-secondary);
+  margin-top: 2px;
+}
+
+.projectItemContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  flex: 1;
+}
+
+.projectItemTitle {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.projectItemDesc {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .conversionContainer {
+    flex-direction: column;
+  }
+
+  .proposalCard,
+  .projectCard {
+    max-width: 100%;
+  }
+
+  .conversionArrow {
+    flex-direction: row;
+    transform: rotate(90deg);
+  }
+
+  .arrow {
+    transform: rotate(-90deg);
+  }
+}
+

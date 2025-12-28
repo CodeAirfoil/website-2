@@ -1,12 +1,50 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import styles from './Navigation.module.css'
 import shared from '../../styles/shared.module.css'
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isDownloadOpen, setIsDownloadOpen] = useState(false)
+  const logoRef = useRef<HTMLObjectElement>(null)
+
+  useEffect(() => {
+    const handleLogoHover = () => {
+      // The SVG animation script runs in the main window context
+      const playerId = '5c7f360c'
+      const player = (window as any).__SVGATOR_PLAYER__?.[playerId]
+      if (player) {
+        if (typeof player.restart === 'function') {
+          player.restart()
+        } else if (typeof player.play === 'function') {
+          player.play()
+        }
+      }
+    }
+
+    const handleLogoLoad = () => {
+      // Wait a bit for the script to initialize after load
+      setTimeout(() => {
+        const playerId = '5c7f360c'
+        const player = (window as any).__SVGATOR_PLAYER__?.[playerId]
+        if (player && typeof player.stop === 'function') {
+          // Stop the animation initially so it only plays on hover
+          player.stop()
+        }
+      }, 100)
+    }
+
+    const logoElement = logoRef.current
+    if (logoElement) {
+      logoElement.addEventListener('load', handleLogoLoad)
+      logoElement.addEventListener('mouseenter', handleLogoHover)
+      return () => {
+        logoElement.removeEventListener('load', handleLogoLoad)
+        logoElement.removeEventListener('mouseenter', handleLogoHover)
+      }
+    }
+  }, [])
 
   return (
     <nav className={styles.nav}>
@@ -15,12 +53,14 @@ const Navigation = () => {
           {/* Logo */}
           <div className={styles.navLogo}>
             <a href="/" className={styles.logoLink}>
-              <img 
-                src="/images/logos/airfoil-logo-dark.svg" 
-                alt="Airfoil" 
+              <object
+                ref={logoRef}
+                data="/images/logos/airfoil-social-icon-animated.svg"
+                type="image/svg+xml"
                 className={styles.logo}
                 width={23}
                 height={16}
+                aria-label="Airfoil"
               />
             </a>
           </div>

@@ -22,7 +22,7 @@ export default function LoginPage() {
       <div className={styles.loginContainer}>
         <div className={styles.loginHeader}>
           <img 
-            src="/images/logos/airfoil-logo-dark.svg" 
+            src="/images/logos/airfoil-logo-white.svg" 
             alt="Airfoil" 
             className={styles.logo}
             width={40}

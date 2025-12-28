@@ -70,7 +70,7 @@
   font-size: var(--font-size-base);
   font-family: inherit;
   transition: all 0.2s ease;
-  background: var(--color-white);
+  background: var(--color-surface);
 }
 
 .input:focus {

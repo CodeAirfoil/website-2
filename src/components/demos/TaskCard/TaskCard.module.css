@@ -1,5 +1,5 @@
 .taskCard {
-  background: var(--color-white);
+  background: var(--color-surface);
   border: 1px solid var(--color-border-light);
   border-radius: var(--radius-lg);
   padding: var(--space-5);
@@ -13,10 +13,16 @@
 
 /* Status variants */
 .statusInProgress {
-  background: var(--color-white);
+  background: var(--color-surface);
   border-color: var(--color-border-light);
   position: relative;
   animation: autoDragDemo 6s ease-in-out infinite;
+  opacity: 1;
+}
+
+.statusInProgress.dragging {
+  opacity: 0.4;
+  background: transparent;
 }
 
 /* Mouse cursor simulation */
@@ -38,9 +44,9 @@
 }
 
 .statusCompleted {
-  background: var(--color-white);
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
-  box-shadow: var(--shadow-sm);
+  
 }
 
 .statusOverdue {
@@ -221,7 +227,7 @@
 
 /* Hover effects */
 .taskCard:hover:not(.statusInProgress) {
-  box-shadow: var(--shadow-sm);
+  
   transform: translateY(-1px);
 }
 
@@ -251,33 +257,33 @@
 @keyframes autoDragDemo {
   0%, 15% {
     transform: translateY(0px) rotate(0deg);
-    box-shadow: var(--shadow-sm);
-    background: var(--color-white);
+    background: var(--color-surface);
     border: 1px solid var(--color-border);
+    opacity: 1;
   }
   20%, 25% {
-    transform: translateY(-4px) rotate(0.5deg) ;
-
-    background: #e6f3ff70;
+    transform: translateY(-4px) rotate(0.5deg);
+    background: transparent;
     border: 1px dashed var(--color-blue-600);
+    opacity: 0.3;
   }
   30%, 55% {
-    transform: translateY(-12px) translateX(3px) rotate(4deg) ;
-
-    background: #e6f3ff70;
+    transform: translateY(-12px) translateX(3px) rotate(4deg);
+    background: transparent;
     border: 1px dashed var(--color-blue-600);
+    opacity: 0.2;
   }
   60%, 65% {
-    transform: translateY(-8px) translateX(1px) rotate(1deg) ;
-
-      background: #e6f3ff70;
+    transform: translateY(-8px) translateX(1px) rotate(1deg);
+    background: transparent;
     border: 1px dashed var(--color-blue-600);
+    opacity: 0.3;
   }
   70%, 100% {
-    transform: translateY(0px) rotate(0deg) ;
-    box-shadow: var(--shadow-sm);
-    background: var(--color-white);
+    transform: translateY(0px) rotate(0deg);
+    background: var(--color-surface);
     border: 1px solid var(--color-border);
+    opacity: 1;
   }
 }
 

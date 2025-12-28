@@ -166,6 +166,8 @@ const Dashboard = ({ className = '' }: DashboardProps) => {
                 Invoices
                 <span className={styles.notification}>2</span>
               </button>
+              <button className={styles.tab}>Expenses</button>
+              <button className={styles.tab}>Deliverables</button>
             </div>
           </div>
           

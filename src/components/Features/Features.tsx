@@ -1,6 +1,8 @@
 'use client'
 
-import { TaskCard, Timer, ProjectStats, GanttChart, FileManager, Invoice, TimelogsChart, ClientTags, Calendar } from '../demos'
+import { useState } from 'react'
+import { TaskCard, Timer as TimerDemo, ProjectStats, GanttChart, FileManager, Invoice, TimelogsChart, ClientTags, Calendar, Proposal, Deliverables, Expenses, ProposalConversion, InvoiceTable } from '../demos'
+import { CurrencyDollar, ChartLineUp, Clock, FileText, Calendar as CalendarIcon, Folder, FolderSimple, Timer, Receipt, Users, FileText as FileTextIcon, Wallet, CheckSquare, CalendarBlank, FolderOpen } from '@phosphor-icons/react'
 import styles from './Features.module.css'
 import shared from '../../styles/shared.module.css'
 
@@ -8,7 +10,7 @@ import shared from '../../styles/shared.module.css'
 interface FeatureCardProps {
   title: string
   description: string
-  icon?: string
+  icon?: string | React.ReactNode
   image?: string
   imageAlt?: string
   demo?: React.ReactNode
@@ -16,6 +18,37 @@ interface FeatureCardProps {
   imagePosition?: 'top' | 'bottom' | 'top-clipped' | 'bottom-clipped' | 'left-clipped' | 'right-clipped'
   size?: 'small' | 'medium' | 'large' | 'wide' | 'full' | 'tall'
   className?: string
+  noPadding?: boolean
+}
+
+// IntroCard component - separate from FeatureCard
+interface IntroCardProps {
+  title: string
+  description: string
+  icon?: React.ReactNode
+  learnMoreLink?: string
+}
+
+const IntroCard = ({ title, description, icon, learnMoreLink }: IntroCardProps) => {
+  return (
+    <div className={styles.introCard}>
+      <div className={styles.introCardContent}>
+        {icon && (
+          <div className={styles.introCardTitleWithIcon}>
+            <div className={styles.introCardIcon}>{icon}</div>
+            <h3 className={styles.introCardTitle}>{title}</h3>
+          </div>
+        )}
+        {!icon && <h3 className={styles.introCardTitle}>{title}</h3>}
+        <p className={styles.introCardDescription}>{description}</p>
+        {learnMoreLink && (
+          <a href={learnMoreLink} className={styles.introCardLearnMore}>
+            Learn more →
+          </a>
+        )}
+      </div>
+    </div>
+  )
 }
 
 const FeatureCard = ({ 
@@ -28,7 +61,8 @@ const FeatureCard = ({
   textAlign = 'left',
   imagePosition = 'top',
   size = 'medium',
-  className = ''
+  className = '',
+  noPadding = false
 }: FeatureCardProps) => {
   
   const content = (
@@ -46,7 +80,7 @@ const FeatureCard = ({
     <div className={styles.featureImage}>
       <img src={image} alt={imageAlt || title} />
     </div>
-  ) : icon ? (
+  ) : (icon && typeof icon === 'string') ? (
     <div className={styles.featureIcon}>{icon}</div>
   ) : null
 
@@ -57,7 +91,7 @@ const FeatureCard = ({
   )
 
   return (
-    <div className={`${styles.featureCard} ${styles[`size${size.charAt(0).toUpperCase() + size.slice(1)}`]} ${styles.cardPadding} ${className}`}>
+    <div className={`${styles.featureCard} ${styles[`size${size.charAt(0).toUpperCase() + size.slice(1)}`]} ${!noPadding ? styles.cardPadding : ''} ${className}`}>
       {imagePosition === 'top' && visual}
       {content}
       {imagePosition === 'bottom' && visual}
@@ -74,6 +108,7 @@ interface Feature {
   demo?: React.ReactNode
   size: 'small' | 'medium' | 'large' | 'wide' | 'full' | 'tall'
   imagePosition?: 'top' | 'bottom' | 'top-clipped' | 'bottom-clipped' | 'left-clipped' | 'right-clipped'
+  noPadding?: boolean
 }
 
 interface FeatureSection {
@@ -82,10 +117,34 @@ interface FeatureSection {
   subtitle: string
   features: Feature[]
   headerAlign?: 'left' | 'center' | 'right'
+  badge?: {
+    label: string
+    icon: React.ReactNode
+  }
 }
 
 const Features = () => {
-  const allFeatures: Feature[] = [
+  const [activeTab, setActiveTab] = useState<string>('all')
+
+  const tabs = [
+    { id: 'all', label: 'All' },
+    { id: 'project-management', label: 'Projects' },
+    { id: 'time-tracking', label: 'Time' },
+    { id: 'financial-management', label: 'Financial' },
+    { id: 'client-project-setup', label: 'Clients' },
+    { id: 'organization-integration', label: 'Organization' }
+  ]
+
+  const featureSections: FeatureSection[] = [
+    {
+      id: 'project-management',
+      title: 'Project Management & Planning',
+      subtitle: 'Organize your work and track progress across all your projects',
+      badge: {
+        label: 'Project Management',
+        icon: <ChartLineUp size={14} weight="regular" />
+      },
+      features: [
     {
       title: "Track progress with clarity",
       description: "Monitor revenue, milestones, and tasks insights—all in one glance",
@@ -128,22 +187,33 @@ const Features = () => {
       imagePosition: "bottom" as const
     },
     {
-      title: "Sync with your existing calendar",
-      description: "Connect to Google Calendar to automatically sync meetings and events with your projects",
+          title: "See the big picture",
+          description: "Set key project milestones and track your progress with dynamic visual timelines",
       demo: (
-        <div className={styles.demoContainerMedium}>
-          <Calendar />
+            <div className={styles.demoContainerLarge}>
+              <GanttChart />
         </div>
       ),
-      size: "wide" as const,
+          size: "full" as const,
       imagePosition: "bottom" as const
+        }
+      ]
     },
+    {
+      id: 'time-tracking',
+      title: 'Time Tracking',
+      subtitle: 'Accurately track your work hours and billable time',
+      badge: {
+        label: 'Time Tracking',
+        icon: <Clock size={14} weight="regular" />
+    },
+      features: [
     {
       title: "Track every second you work",
       description: "Start a timer and track every moment. Your time is automatically logged for billing",
       demo: (
         <div className={styles.demoContainerMedium}>
-          <Timer
+          <TimerDemo
             isRunning={true}
             elapsedTime="00:12:56"
             taskName="Mobile App Development"
@@ -154,22 +224,121 @@ const Features = () => {
       imagePosition: "bottom" as const
     },
     {
-      title: "See the big picture",
-      description: "Set key project milestones and track your progress with dynamic visual timelines",
-      demo: (
-        <div className={styles.demoContainerLarge}>
-          <GanttChart />
-        </div>
-      ),
-      size: "full" as const,
-      imagePosition: "bottom" as const
-    },
-    {
       title: "Your time, automatically tallied",
       description: "We track your work hours so you can focus on tasks—not spreadsheets",
       demo: (
         <div className={styles.demoContainerMedium}>
           <TimelogsChart />
+        </div>
+      ),
+      size: "wide" as const,
+      imagePosition: "bottom" as const
+        }
+      ]
+    },
+    {
+      id: 'financial-management',
+      title: 'Financial Management',
+      subtitle: 'Get paid faster and keep accurate financial records',
+      badge: {
+        label: 'Financial Management',
+        icon: <CurrencyDollar size={14} weight="regular" />
+      },
+      features: [
+        {
+          title: "Everything you've tracked, turned into an invoice",
+          description: "Your time entries, tasks, and project data come together to create ready-to-send invoices—automatically",
+          demo: (
+            <div className={styles.demoContainerMedium}>
+              <Invoice />
+            </div>
+          ),
+          size: "large" as const,
+          imagePosition: "bottom" as const
+        },
+        {
+          title: "Track business expenses",
+          description: "Record and categorize business expenses to keep accurate financial records and maximize deductions",
+          demo: (
+            <div className={styles.demoContainerMedium}>
+              <Expenses />
+            </div>
+          ),
+          size: "large" as const,
+          imagePosition: "bottom" as const
+        },
+        {
+          title: "Manage all your invoices in one place",
+          description: "View, track, and manage all your invoices with clear status indicators. See what's been paid, what's overdue, and what's still pending",
+          demo: (
+            <div className={styles.demoContainerLarge}>
+              <InvoiceTable />
+            </div>
+          ),
+          size: "full" as const,
+          imagePosition: "bottom" as const
+        }
+      ]
+    },
+    {
+      id: 'client-project-setup',
+      title: 'Client & Project Setup',
+      subtitle: 'Win more work and deliver on your promises',
+      badge: {
+        label: 'Client & Project Setup',
+        icon: <FileText size={14} weight="regular" />
+      },
+      features: [
+        {
+          title: "Win more work with professional proposals",
+          description: "Create beautiful proposals with detailed line items, pricing, and custom terms to win more clients",
+          demo: (
+            <div className={styles.demoContainerMedium}>
+              <Proposal />
+            </div>
+          ),
+          size: "large" as const,
+          imagePosition: "bottom" as const
+        },
+        {
+          title: "Track project deliverables",
+          description: "Organize and track all project deliverables with clear checklists and completion status",
+          demo: (
+            <div className={styles.demoContainerMedium}>
+              <Deliverables />
+            </div>
+          ),
+          size: "large" as const,
+          imagePosition: "bottom" as const
+        },
+        {
+          title: "Accept proposals and automatically convert to projects",
+          description: "When a client accepts your proposal, it automatically converts into a project with tasks, deliverables, and milestones—ready to start work immediately",
+          demo: (
+            <div className={styles.demoContainerLarge}>
+              <ProposalConversion />
+            </div>
+          ),
+          size: "full" as const,
+          imagePosition: "bottom" as const
+        }
+      ]
+    },
+    {
+      id: 'organization-integration',
+      title: 'Organization & Integration',
+      subtitle: 'Stay organized and connected with your existing tools',
+      badge: {
+        label: 'Organization & Integration',
+        icon: <Folder size={14} weight="regular" />
+      },
+      features: [
+        {
+          title: "Sync with your existing calendar",
+          description: "Connect to Google Calendar to automatically sync meetings and events with your projects",
+          demo: (
+            <div className={styles.demoContainerMedium}>
+              <Calendar />
         </div>
       ),
       size: "wide" as const,
@@ -210,34 +379,125 @@ const Features = () => {
       ),
       size: "medium" as const,
       imagePosition: "bottom" as const
-    },
-    {
-      title: "Everything you've tracked, turned into an invoice",
-      description: "Your time entries, tasks, and project data come together to create ready-to-send invoices—automatically",
-      demo: (
-        <div className={styles.demoContainerMedium}>
-          <Invoice />
-        </div>
-      ),
-      size: "full" as const,
-      imagePosition: "bottom" as const
+        }
+      ]
     }
   ]
+
+  const introSection = {
+    id: 'intro',
+    title: 'What Airfoil Does',
+    subtitle: 'Everything you need to run your freelance business',
+    features: [
+      {
+        title: 'Project Management',
+        description: 'Organize and track all your client work with unlimited projects, custom budgets, and visual progress indicators.',
+        icon: <FolderSimple size={20} weight="regular" />,
+        size: 'medium' as const,
+        imagePosition: 'bottom' as const,
+        learnMoreLink: '/project-management'
+      },
+      {
+        title: 'Time Tracking',
+        description: 'Track every second you work with built-in timers that automatically log time for billing.',
+        icon: <Timer size={20} weight="regular" />,
+        size: 'medium' as const,
+        imagePosition: 'bottom' as const,
+        learnMoreLink: '/time-tracking'
+      },
+      {
+        title: 'Invoicing & Payments',
+        description: 'Automatically generate professional invoices from your time entries and get paid faster with integrated payment processing.',
+        icon: <Receipt size={20} weight="regular" />,
+        size: 'medium' as const,
+        imagePosition: 'bottom' as const,
+        learnMoreLink: '/invoicing'
+      },
+      {
+        title: 'Client Management',
+        description: 'Build stronger relationships with a centralized client database and comprehensive relationship insights.',
+        icon: <Users size={20} weight="regular" />,
+        size: 'medium' as const,
+        imagePosition: 'bottom' as const,
+        learnMoreLink: '/client-management'
+      },
+      {
+        title: 'Proposals & Quotes',
+        description: 'Create beautiful proposals with detailed line items, pricing, and custom terms to win more clients.',
+        icon: <FileTextIcon size={20} weight="regular" />,
+        size: 'medium' as const,
+        imagePosition: 'bottom' as const,
+        learnMoreLink: '/proposals'
+      },
+      {
+        title: 'Expense Tracking',
+        description: 'Record and categorize business expenses to keep accurate financial records and maximize deductions.',
+        icon: <Wallet size={20} weight="regular" />,
+        size: 'medium' as const,
+        imagePosition: 'bottom' as const,
+        learnMoreLink: '/expenses'
+      },
+      {
+        title: 'Deliverables Management',
+        description: 'Organize and track all project deliverables with clear checklists and completion status.',
+        icon: <CheckSquare size={20} weight="regular" />,
+        size: 'medium' as const,
+        imagePosition: 'bottom' as const,
+        learnMoreLink: '/deliverables'
+      },
+      {
+        title: 'Calendar Integration',
+        description: 'Connect to Google Calendar to automatically sync meetings and events with your projects.',
+        icon: <CalendarBlank size={20} weight="regular" />,
+        size: 'medium' as const,
+        imagePosition: 'bottom' as const,
+        learnMoreLink: '/calendar'
+      },
+      {
+        title: 'File Storage',
+        description: 'Upload and manage documents, assets, and code—neatly organized by project.',
+        icon: <FolderOpen size={20} weight="regular" />,
+        size: 'medium' as const,
+        imagePosition: 'bottom' as const,
+        learnMoreLink: '/file-storage'
+      }
+    ]
+  }
 
   return (
     <section className={styles.features} id="features">
       <div className={shared.container}>
-        <div className={styles.featuresHeader}>
-          <h2 className={styles.featuresTitle}>
-            The Operating System for Independent Work
-          </h2>
-          <p className={styles.featuresSubtitle}>
-            A lightweight, all-in-one toolkit to streamline your freelance workflow—built with intention.
-          </p>
+        {/* Tabs */}
+        <div className={styles.featureTabs}>
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              className={`${styles.featureTab} ${activeTab === tab.id ? styles.featureTabActive : ''}`}
+              onClick={() => setActiveTab(tab.id)}
+            >
+              {tab.label}
+            </button>
+          ))}
         </div>
 
+        {featureSections
+          .filter((section) => activeTab === 'all' || section.id === activeTab)
+          .map((section) => (
+          <div key={section.id} className={styles.featureSection}>
+            <div className={styles.sectionHeader}>
+              {section.badge && (
+                <div className={styles.sectionBadge}>
+                  {section.badge.icon}
+                  <span className={styles.sectionBadgeLabel}>{section.badge.label}</span>
+                </div>
+              )}
+              <div className={styles.sectionTitleGroup}>
+                <h3 className={styles.sectionTitle}>{section.title}</h3>
+                <p className={styles.sectionSubtitle}>{section.subtitle}</p>
+              </div>
+            </div>
         <div className={styles.featuresGrid}>
-          {allFeatures.map((feature, index) => (
+              {section.features.map((feature, index) => (
             <FeatureCard
               key={index}
               title={feature.title}
@@ -251,6 +511,8 @@ const Features = () => {
             />
           ))}
         </div>
+          </div>
+        ))}
       </div>
     </section>
   )

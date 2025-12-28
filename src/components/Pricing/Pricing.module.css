@@ -1,6 +1,6 @@
 .pricing {
   padding: var(--space-8) 0;
-  background: var(--color-white);
+  background: var(--color-surface);
   display: flex;
   align-items: center;
 }
@@ -166,13 +166,13 @@
 }
 
 .toggleButton.toggleActive {
-  background: var(--color-blue-600);
+  background: var(--color-yellow-600);
 }
 
 .toggleSlider {
   width: 10px;
   height: 10px;
-  background: var(--color-white);
+  background: var(--color-surface);
   border-radius: 50%;
   transition: transform 0.3s ease;
 }

@@ -1,0 +1,258 @@
+.invoiceTableDemo {
+  width: 100%;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.tableHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-2);
+}
+
+.tableTitle {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.searchContainer {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-gray-100);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  width: 240px;
+}
+
+.searchContainer svg {
+  flex-shrink: 0;
+  color: var(--color-text-secondary);
+}
+
+.searchInput {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  outline: none;
+}
+
+.searchInput::placeholder {
+  color: var(--color-text-secondary);
+}
+
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table thead {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.table th {
+  text-align: left;
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--font-size-xs);
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  background: var(--color-background);
+}
+
+.table tbody tr {
+  border-bottom: 1px solid var(--color-border);
+  transition: background-color 0.2s ease;
+}
+
+.table tbody tr:hover {
+  background: var(--color-gray-100);
+}
+
+.table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.table td {
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+}
+
+.checkboxColumn {
+  width: 40px;
+}
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.idColumn {
+  font-family: monospace;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
+
+.titleColumn {
+  max-width: 300px;
+  min-width: 200px;
+}
+
+.clientCell {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.avatar {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.projectCell {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.projectIcon {
+  font-size: var(--font-size-sm);
+  flex-shrink: 0;
+}
+
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.statusBadge svg {
+  flex-shrink: 0;
+}
+
+.statusPaid {
+  background: var(--color-green-100);
+  color: var(--color-success);
+}
+
+.statusRefunded {
+  background: var(--color-yellow-100);
+  color: var(--color-warning);
+}
+
+.statusOverdue {
+  background: var(--color-red-100);
+  color: var(--color-error);
+}
+
+.statusCancelled {
+  background: var(--color-gray-100);
+  color: var(--color-text-secondary);
+}
+
+.statusDraft {
+  background: var(--color-gray-100);
+  color: var(--color-text-secondary);
+}
+
+.recurringBadge {
+  display: inline-block;
+  padding: var(--space-1) var(--space-2);
+  background: var(--color-green-100);
+  color: var(--color-success);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+}
+
+.dash {
+  color: var(--color-text-secondary);
+}
+
+.dateColumn {
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+.recurringColumn {
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.amountColumn {
+  text-align: right;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.tableFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+}
+
+.footerInfo {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
+
+.pagination {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.paginationButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.paginationButton:hover {
+  background: var(--color-gray-100);
+  border-color: var(--color-border-hover);
+  color: var(--color-text);
+}
+
+.paginationButton svg {
+  flex-shrink: 0;
+}
+
