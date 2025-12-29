@@ -3,6 +3,7 @@
   text-align: center;
   position: relative;
   overflow: hidden;
+  background: var(--color-brand-yellow);
 }
 
 .cta::before {
@@ -20,13 +21,14 @@
 .ctaContent {
   position: relative;
   z-index: 1;
-  max-width: 600px;
+  max-width: 720px;
   margin: 0 auto;
 }
 
 .ctaTitle {
-  font-size: var(--font-size-3xl);
-  font-weight: 600;
+  font-size: var(--font-size-5xl);
+  font-family: var(--font-serif);
+  font-weight: 300;
   color: var(--color-text-primary);
   margin-bottom: var(--space-6);
   line-height: 1.2;
@@ -34,7 +36,7 @@
 
 .ctaDescription {
   font-size: var(--font-size-lg);
-  color: var(--color-text-secondary);
+  color: var(--color-text-blended-dark);
   margin-bottom: var(--space-8);
   line-height: 1.6;
 }
@@ -54,7 +56,7 @@
 
 .ctaSubtext {
   font-size: var(--font-size-sm);
-  color: var(--color-text-tertiary);
+  color: var(--color-text-blended-dark);
   margin: 0;
 }
 

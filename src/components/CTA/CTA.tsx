@@ -13,7 +13,7 @@ const CTA = () => {
             Join thousands of freelancers who are already using Airfoil to track time, manage projects, and get paid faster.
           </p>
           <div className={styles.ctaActions}>
-            <a href="https://dashboard.airfoil.app" className={`${shared.btn} ${shared.btnPrimary} ${styles.ctaButton}`}>
+            <a href="https://dashboard.airfoil.app" className={`${shared.btn} ${shared.btnPrimary}`}>
               Get Started Free
             </a>
             <a href="/pricing" className={`${shared.btn} ${shared.btnSecondary}`}>

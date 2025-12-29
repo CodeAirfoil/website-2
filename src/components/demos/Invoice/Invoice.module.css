@@ -1,15 +1,18 @@
 .invoice {
   display: flex;
   flex-direction: column;
+  width: 100%;
+}
+
+.invoiceContent {
+  display: flex;
+  flex-direction: column;
   gap: var(--space-4);
   width: 100%;
 }
 
 .serviceCard {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  padding: var(--space-6);
+  padding: var(--space-8);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -63,10 +66,7 @@
 }
 
 .summaryCard {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  padding: var(--space-6);
+  padding: var(--space-8);
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
@@ -87,22 +87,22 @@
 }
 
 .summaryValue {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-lg);
   color: var(--color-text);
-  font-weight: 600;
+  font-weight: 400;
   animation: countUp 2s ease-out;
 }
 
 .totalLabel {
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-lg);
   color: var(--color-text);
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .totalValue {
-  font-size: var(--font-size-2xl);
-  color: var(--color-green-600);
-  font-weight: 600;
+  font-size: var(--font-size-5xl);
+  font-family: var(--font-serif);
+  font-weight: 400;
   animation: countUp 2s ease-out;
 }
 
@@ -110,8 +110,8 @@
   height: 1px;
   background: repeating-linear-gradient(
     to right,
-    var(--color-border) 0,
-    var(--color-border) 4px,
+    var(--color-border-transparent) 0,
+    var(--color-border-transparent) 4px,
     transparent 4px,
     transparent 8px
   );
@@ -168,7 +168,7 @@
   }
 
   .totalValue {
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-4xl);
   }
 
   .actionButtons {
@@ -221,7 +221,7 @@
 
 .stripeButton:hover {
   background: #5b56f0;
-  box-shadow: var(--shadow-lg);
+  
 }
 
 .stripeButton:active {

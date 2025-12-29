@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react'
 import styles from './Invoice.module.css'
-import Image from 'next/image'
 
 export interface InvoiceItem {
   service: string
@@ -86,68 +85,28 @@ const Invoice = ({
 
   return (
     <div className={`${styles.invoice} ${className}`}>
-      {/* Service Item Details Card */}
-      <div className={styles.serviceCard}>
-        <div className={styles.serviceInfo}>
-          <div className={styles.serviceName}>
-            {invoiceItems[0].service}
+      <div className={styles.invoiceContent}>
+        {/* Financial Summary Card */}
+        <div className={styles.summaryCard}>
+          <div className={styles.summaryRow}>
+            <span className={styles.summaryLabel}>Subtotal:</span>
+            <span className={styles.summaryValue}>${animatedSubtotal.toLocaleString()}</span>
+          </div>
+          
+          <div className={styles.summaryRow}>
+            <span className={styles.summaryLabel}>Tax:</span>
+            <span className={styles.summaryValue}>
+              {Math.round(taxRate * 100)}% (${animatedTax.toLocaleString()})
+            </span>
+          </div>
+          
+          <div className={styles.divider}></div>
+          
+          <div className={styles.summaryRow}>
+            <span className={styles.totalLabel}>Total:</span>
+            <span className={styles.totalValue}>${animatedTotal.toLocaleString()}</span>
           </div>
         </div>
-        
-        <div className={styles.serviceDetails}>
-          <div className={styles.detailRow}>
-            <span className={styles.detailLabel}>Quantity</span>
-            <span className={styles.detailValue}>{invoiceItems[0].quantity}</span>
-          </div>
-          <div className={styles.detailRow}>
-            <span className={styles.detailLabel}>Rate</span>
-            <span className={styles.detailValue}>{invoiceItems[0].rate}</span>
-          </div>
-          <div className={styles.detailRow}>
-            <span className={styles.detailLabel}>To Be Billed</span>
-            <span className={styles.detailValue}>${invoiceItems[0].amount.toLocaleString()}</span>
-          </div>
-        </div>
-      </div>
-
-      {/* Financial Summary Card */}
-      <div className={styles.summaryCard}>
-        <div className={styles.summaryRow}>
-          <span className={styles.summaryLabel}>Subtotal:</span>
-          <span className={styles.summaryValue}>${animatedSubtotal.toLocaleString()}</span>
-        </div>
-        
-        <div className={styles.summaryRow}>
-          <span className={styles.summaryLabel}>Tax:</span>
-          <span className={styles.summaryValue}>
-            {Math.round(taxRate * 100)}% (${animatedTax.toLocaleString()})
-          </span>
-        </div>
-        
-        <div className={styles.divider}></div>
-        
-        <div className={styles.summaryRow}>
-          <span className={styles.totalLabel}>Total:</span>
-          <span className={styles.totalValue}>${animatedTotal.toLocaleString()}</span>
-        </div>
-      </div>
-
-      {/* Action Buttons */}
-      <div className={styles.actionButtons}>
-      <div className={styles.sendButton}>
-          Download Invoice
-        </div>
-        <div className={styles.stripeButton}>
-          <Image
-            src="/images/Stripe-S-Logo.svg"
-            alt="Stripe"
-            width={16}
-            height={16}
-            className={styles.stripeIcon}
-          />
-          Send with Stripe
-        </div>
-      
       </div>
     </div>
   )

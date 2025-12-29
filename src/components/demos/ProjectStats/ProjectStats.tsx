@@ -6,36 +6,49 @@ import styles from './ProjectStats.module.css'
 export interface StatCardProps {
   title: string
   percentage: number
-  description: string
+  description?: string
   color: 'green' | 'blue' | 'orange'
   className?: string
+  dollarValue?: string
 }
 
-const StatCard = ({ title, percentage, description, color, className = '' }: StatCardProps) => {
+const StatCard = ({ title, percentage, description, color, className = '', dollarValue }: StatCardProps) => {
   const [animatedPercentage, setAnimatedPercentage] = useState(0)
+  const [animatedDollar, setAnimatedDollar] = useState(0)
+
+  // Parse dollar value to get numeric amount
+  const dollarAmount = dollarValue ? parseInt(dollarValue.replace(/[^0-9]/g, '')) : 0
 
   useEffect(() => {
-    const duration = 4000 // 1 second to count up (faster)
+    const duration = 4000 // 4 seconds to count up
     const steps = 350 // More steps for smoother animation
     const stepDuration = duration / steps
-    const pauseDuration = 4000 // 5 seconds pause between animations (longer)
+    const pauseDuration = 4000 // 4 seconds pause between animations
 
     const animate = () => {
       let currentStep = 0
       const timer = setInterval(() => {
         currentStep++
         const progress = currentStep / steps
-        const currentValue = Math.floor(percentage * progress)
+        const currentPercentage = Math.floor(percentage * progress)
+        const currentDollar = Math.floor(dollarAmount * progress)
         
-        setAnimatedPercentage(currentValue)
+        setAnimatedPercentage(currentPercentage)
+        if (dollarValue) {
+          setAnimatedDollar(currentDollar)
+        }
 
         if (currentStep >= steps) {
           clearInterval(timer)
           setAnimatedPercentage(percentage)
+          if (dollarValue) {
+            setAnimatedDollar(dollarAmount)
+          }
           
           // Restart animation after pause
           setTimeout(() => {
             setAnimatedPercentage(0)
+            setAnimatedDollar(0)
             // Add a small delay before starting the next animation
             setTimeout(() => {
               animate()
@@ -49,13 +62,20 @@ const StatCard = ({ title, percentage, description, color, className = '' }: Sta
 
     const timer = animate()
     return () => clearInterval(timer)
-  }, [percentage])
+  }, [percentage, dollarAmount, dollarValue])
+
+  // Format dollar amount with commas
+  const formatDollar = (amount: number) => {
+    return `$${amount.toLocaleString()}`
+  }
 
   return (
     <div className={`${styles.statCard} ${className}`}>
       <div className={styles.cardHeader}>
         <h3 className={styles.cardTitle}>{title}</h3>
-        <span className={styles.percentage}>{animatedPercentage}%</span>
+        <span className={styles.percentage}>
+          {dollarValue ? formatDollar(animatedDollar) : `${animatedPercentage}%`}
+        </span>
       </div>
       
       <div className={styles.progressBar}>
@@ -64,8 +84,6 @@ const StatCard = ({ title, percentage, description, color, className = '' }: Sta
           style={{ width: `${animatedPercentage}%` }}
         />
       </div>
-      
-      <p className={styles.description}>{description}</p>
     </div>
   )
 }
@@ -79,13 +97,12 @@ const ProjectStats = ({ className = '' }: ProjectStatsProps) => {
     {
       title: "Revenue Collection",
       percentage: 20,
-      description: "$2,000 paid of $10,000 invoiced",
+      dollarValue: "$2,000",
       color: 'green' as const
     },
     {
       title: "Project Progress", 
       percentage: 56,
-      description: "1 of 2 Milestones Completed",
       color: 'blue' as const
     }
   ]
@@ -97,7 +114,7 @@ const ProjectStats = ({ className = '' }: ProjectStatsProps) => {
           key={index}
           title={stat.title}
           percentage={stat.percentage}
-          description={stat.description}
+          dollarValue={stat.dollarValue}
           color={stat.color}
           className={styles[`card${index + 1}`]}
         />

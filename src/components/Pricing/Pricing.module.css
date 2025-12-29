@@ -30,9 +30,8 @@
 }
 
 .pro {
-  background: var(--color-background-gradient);
-  border: 1px solid var(--color-border);
-  box-shadow: var(--shadow-lg);
+  background: var(--color-brand-green-pale);
+  
 }
 
 
@@ -70,7 +69,6 @@
 }
 
 .proStar {
-  color: var(--color-blue-600);
   font-size: var(--font-size-lg);
 }
 
@@ -82,20 +80,23 @@
 }
 
 .price {
-  font-size: var(--font-size-3xl);
-  font-weight: 600;
-  color: var(--color-blue-600);
+  font-size: var(--font-size-6xl);
+  font-weight: 300;
+  font-family: var(--font-serif);
   line-height: 1;
 }
 
 .priceFree {
   color: var(--color-text);
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: var(--font-size-5xl);
 }
 
 .period {
   font-size: var(--font-size-lg);
   color: var(--color-text-secondary);
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .tierDescription {
@@ -122,9 +123,9 @@
 }
 
 .checkIcon {
-  color: var(--color-blue-600);
+  color: var(--color-brand-white);
   flex-shrink: 0;
-  background: var(--color-blue-100);
+  background: var(--color-brand-teal-dark);
   border-radius: 50%;
   padding: var(--space-1);
   width: 20px;
@@ -166,7 +167,7 @@
 }
 
 .toggleButton.toggleActive {
-  background: var(--color-yellow-600);
+  background: var(--color-brand-teal-dark);
 }
 
 .toggleSlider {
@@ -182,7 +183,7 @@
 }
 
 .savingsBadge {
-  background: var(--color-yellow-600);
+  background: var(--color-brand-teal-dark);
   color: var(--color-white);
   font-size: var(--font-size-sm);
   font-weight: 600;

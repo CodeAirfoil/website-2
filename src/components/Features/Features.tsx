@@ -1,6 +1,4 @@
 'use client'
-
-import { useState } from 'react'
 import { TaskCard, Timer as TimerDemo, ProjectStats, GanttChart, FileManager, Invoice, TimelogsChart, ClientTags, Calendar, Proposal, Deliverables, Expenses, ProposalConversion, InvoiceTable } from '../demos'
 import { CurrencyDollar, ChartLineUp, Clock, FileText, Calendar as CalendarIcon, Folder, FolderSimple, Timer, Receipt, Users, FileText as FileTextIcon, Wallet, CheckSquare, CalendarBlank, FolderOpen } from '@phosphor-icons/react'
 import styles from './Features.module.css'
@@ -117,33 +115,14 @@ interface FeatureSection {
   subtitle: string
   features: Feature[]
   headerAlign?: 'left' | 'center' | 'right'
-  badge?: {
-    label: string
-    icon: React.ReactNode
-  }
 }
 
 const Features = () => {
-  const [activeTab, setActiveTab] = useState<string>('all')
-
-  const tabs = [
-    { id: 'all', label: 'All' },
-    { id: 'project-management', label: 'Projects' },
-    { id: 'time-tracking', label: 'Time' },
-    { id: 'financial-management', label: 'Financial' },
-    { id: 'client-project-setup', label: 'Clients' },
-    { id: 'organization-integration', label: 'Organization' }
-  ]
-
   const featureSections: FeatureSection[] = [
     {
       id: 'project-management',
       title: 'Project Management & Planning',
       subtitle: 'Organize your work and track progress across all your projects',
-      badge: {
-        label: 'Project Management',
-        icon: <ChartLineUp size={14} weight="regular" />
-      },
       features: [
     {
       title: "Track progress with clarity",
@@ -203,10 +182,6 @@ const Features = () => {
       id: 'time-tracking',
       title: 'Time Tracking',
       subtitle: 'Accurately track your work hours and billable time',
-      badge: {
-        label: 'Time Tracking',
-        icon: <Clock size={14} weight="regular" />
-    },
       features: [
     {
       title: "Track every second you work",
@@ -240,10 +215,6 @@ const Features = () => {
       id: 'financial-management',
       title: 'Financial Management',
       subtitle: 'Get paid faster and keep accurate financial records',
-      badge: {
-        label: 'Financial Management',
-        icon: <CurrencyDollar size={14} weight="regular" />
-      },
       features: [
         {
           title: "Everything you've tracked, turned into an invoice",
@@ -284,10 +255,6 @@ const Features = () => {
       id: 'client-project-setup',
       title: 'Client & Project Setup',
       subtitle: 'Win more work and deliver on your promises',
-      badge: {
-        label: 'Client & Project Setup',
-        icon: <FileText size={14} weight="regular" />
-      },
       features: [
         {
           title: "Win more work with professional proposals",
@@ -328,10 +295,6 @@ const Features = () => {
       id: 'organization-integration',
       title: 'Organization & Integration',
       subtitle: 'Stay organized and connected with your existing tools',
-      badge: {
-        label: 'Organization & Integration',
-        icon: <Folder size={14} weight="regular" />
-      },
       features: [
         {
           title: "Sync with your existing calendar",
@@ -467,30 +430,9 @@ const Features = () => {
   return (
     <section className={styles.features} id="features">
       <div className={shared.container}>
-        {/* Tabs */}
-        <div className={styles.featureTabs}>
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              className={`${styles.featureTab} ${activeTab === tab.id ? styles.featureTabActive : ''}`}
-              onClick={() => setActiveTab(tab.id)}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </div>
-
-        {featureSections
-          .filter((section) => activeTab === 'all' || section.id === activeTab)
-          .map((section) => (
+        {featureSections.map((section) => (
           <div key={section.id} className={styles.featureSection}>
             <div className={styles.sectionHeader}>
-              {section.badge && (
-                <div className={styles.sectionBadge}>
-                  {section.badge.icon}
-                  <span className={styles.sectionBadgeLabel}>{section.badge.label}</span>
-                </div>
-              )}
               <div className={styles.sectionTitleGroup}>
                 <h3 className={styles.sectionTitle}>{section.title}</h3>
                 <p className={styles.sectionSubtitle}>{section.subtitle}</p>

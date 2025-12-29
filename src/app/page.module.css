@@ -1,0 +1,254 @@
+.sectionContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  width: 100%;
+  align-items: start;
+  grid-auto-rows: auto;
+  grid-auto-flow: dense;
+}
+
+@media (max-width: 900px) {
+  .sectionContainer {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contentCard {
+  background: rgba(0, 0, 0, 0.005);
+  border: none;
+  border-radius: var(--radius-lg);
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  height: fit-content;
+  backdrop-filter: brightness(0.97);
+}
+
+.cardWide {
+  grid-column: span 2;
+}
+
+.cardHalf {
+  grid-column: span 1;
+}
+
+/* Place the third card (Subtasks) in column 2 to align below Advanced Features */
+.sectionContainer > .cardHalf:nth-child(3) {
+  grid-column: 2;
+}
+
+@media (max-width: 900px) {
+  .cardWide,
+  .cardHalf {
+    grid-column: span 1;
+  }
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-8);
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.subtasksCardLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  align-items: start;
+  padding: var(--space-8);
+}
+
+.subtasksCardLayout .cardContent {
+  grid-column: 1;
+  padding: 0;
+}
+
+.subtasksDemo {
+  grid-column: 2;
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .subtasksCardLayout {
+    grid-template-columns: 1fr;
+    padding: var(--space-8);
+  }
+  
+  .subtasksCardLayout .cardContent,
+  .subtasksDemo {
+    grid-column: 1;
+  }
+}
+
+.cardTitle {
+  font-size: var(--font-size-3xl);
+  font-weight: 400;
+  color: var(--color-text-primary);
+  line-height: 1.3;
+  margin: 0 0 var(--space-2) 0;
+  font-family: var(--font-serif);
+}
+
+.cardDescription {
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  color: var(--color-text-blended-dark);
+  font-weight: 400;
+}
+
+.featureList {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-4) 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.featureList li {
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  padding-left: var(--space-6);
+  position: relative;
+}
+
+.featureList li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--color-text-tertiary);
+  font-weight: 600;
+}
+
+.taskCardsStack {
+  display: flex;
+  
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+  padding: var(--space-4);
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  top: -120;
+}
+
+.taskCardsStack > * {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.demoStack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.demoStack > * {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.reminderTags {
+  margin-top: var(--space-6);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.tag {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-full);
+  background: var(--color-background);
+
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  transition: all 0.2s ease;
+}
+
+.tag svg {
+  flex-shrink: 0;
+}
+
+.tag.priorityLow svg {
+  color: #6b7280;
+}
+
+.tag.priorityMedium svg {
+  color: #f59e0b;
+}
+
+.tag.priorityHigh svg {
+  color: #ef4444;
+}
+
+.tag.statusDone svg {
+  color: #10b981;
+}
+
+.tag.statusInProgress svg {
+  color: #3b82f6;
+}
+
+/* File Icons Grid */
+.fileIconsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  justify-items: center;
+  align-items: center;
+  width: 100%;
+  max-width: 240px;
+  margin: 0 auto;
+  padding: var(--space-4) 0;
+}
+
+.floatingIcon {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .projectManagementContent {
+    gap: var(--space-8);
+  }
+}
+

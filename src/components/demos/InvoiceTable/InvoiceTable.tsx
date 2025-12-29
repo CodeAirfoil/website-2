@@ -99,29 +99,12 @@ const InvoiceTable = ({ className = '' }: InvoiceTableProps) => {
     <div className={`${styles.invoiceTableDemo} ${className}`}>
       <div className={styles.tableWrapper}>
         <table className={styles.table}>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Title</th>
-              <th>Project</th>
-              <th>Status</th>
-              <th>Recurring</th>
-              <th>Due Date</th>
-              <th className={styles.amountColumn}>Amount</th>
-            </tr>
-          </thead>
           <tbody>
             {invoices.map((invoice) => {
               const statusConfig = getStatusConfig(invoice.status)
               return (
                 <tr key={invoice.id}>
                   <td className={styles.idColumn}>{invoice.id}</td>
-                  <td className={styles.titleColumn}>{invoice.title}</td>
-                  <td>
-                    <div className={styles.projectCell}>
-                      <span>{invoice.project.name}</span>
-                    </div>
-                  </td>
                   <td>
                     <div className={`${styles.statusBadge} ${statusConfig.className}`}>
                       {statusConfig.icon}

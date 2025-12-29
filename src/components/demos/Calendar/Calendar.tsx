@@ -122,13 +122,6 @@ const Calendar = ({ events, className = '' }: CalendarProps) => {
 
   return (
     <div className={`${styles.calendar} ${className}`}>
-      <div className={styles.calendarHeader}>
-        <h3 className={styles.calendarTitle}>Today's Schedule</h3>
-        <div className={styles.currentTime}>
-          {currentTime}
-        </div>
-      </div>
-
       <div className={styles.calendarBody}>
         <div className={styles.timeColumn}>
           {timeSlots.map((time) => (

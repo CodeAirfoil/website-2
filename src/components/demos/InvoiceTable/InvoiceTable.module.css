@@ -1,8 +1,5 @@
 .invoiceTableDemo {
   width: 100%;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
@@ -61,7 +58,8 @@
 }
 
 .table thead {
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border-transparent);
+  border-top: 1px solid var(--color-border-transparent);
 }
 
 .table th {
@@ -70,24 +68,21 @@
   font-size: var(--font-size-xs);
   font-weight: 400;
   color: var(--color-text-secondary);
-  background: var(--color-background);
+  background: transparent;
 }
 
 .table tbody tr {
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border-transparent);
   transition: background-color 0.2s ease;
 }
 
-.table tbody tr:hover {
-  background: var(--color-gray-100);
-}
 
 .table tbody tr:last-child {
   border-bottom: none;
 }
 
 .table td {
-  padding: var(--space-3) var(--space-4);
+  padding: var(--space-4) var(--space-8);
   font-size: var(--font-size-sm);
   color: var(--color-text);
 }
@@ -149,7 +144,7 @@
   align-items: center;
   gap: var(--space-2);
   padding: var(--space-1) var(--space-2);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-full);
   font-size: var(--font-size-xs);
   font-weight: 500;
   white-space: nowrap;
@@ -160,18 +155,18 @@
 }
 
 .statusPaid {
-  background: var(--color-green-100);
-  color: var(--color-success);
+  background: var(--color-green-950);
+  color: var(--color-white);
 }
 
 .statusRefunded {
-  background: var(--color-yellow-100);
-  color: var(--color-warning);
+  background: var(--color-yellow-950);
+  color: var(--color-white);
 }
 
 .statusOverdue {
-  background: var(--color-red-100);
-  color: var(--color-error);
+  background: var(--color-red-950);
+  color: var(--color-white);
 }
 
 .statusCancelled {
@@ -209,8 +204,7 @@
 }
 
 .amountColumn {
-  text-align: right;
-  font-weight: 600;
+  text-align: left;
   white-space: nowrap;
 }
 

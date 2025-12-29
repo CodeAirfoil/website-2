@@ -44,7 +44,7 @@ const Footer = () => {
 
           <div className={styles.footerBottom}>
             <p className={styles.footerCopyright}>
-              © 2025 Airfoil. All rights reserved.
+              © 2026 Airfoil. All rights reserved.
             </p>
             <div className={styles.footerBottomLinks}>
               <a href="mailto:hello@airfoil.app" className={styles.footerLink}>hello@airfoil.app</a>

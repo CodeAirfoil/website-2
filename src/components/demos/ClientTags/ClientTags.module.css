@@ -1,9 +1,6 @@
 .clientTags {
-  display: flex;
-  flex-direction: column;
   gap: 8px;
   width: 100%;
-  max-width: 280px;
 }
 
 .clientTag {
@@ -11,7 +8,6 @@
   align-items: center;
   gap: var(--space-4);
   padding: var(--space-4);
-  border-radius: var(--radius-full);
   transition: all 0.2s ease;
 }
 

@@ -72,21 +72,6 @@ const Timer = ({
       <div className={styles.timeDisplay}>
         {formatTime(elapsedSeconds)}
       </div>
-
-      {/* Task name */}
-      <div className={styles.taskField}>
-        {taskName}
-      </div>
-
-      {/* Stop button */}
-      <button 
-        className={styles.stopButton}
-        onClick={handleStop}
-        disabled={!isRunning}
-      >
-        <div className={styles.stopIcon}></div>
-        <span>Stop</span>
-      </button>
     </div>
   )
 }

@@ -5,13 +5,10 @@
 }
 
 .expenseCard {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-lg);
-  padding: var(--space-5);
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
+  padding: var(--space-8);
 }
 
 .expenseHeader {
@@ -21,15 +18,16 @@
 }
 
 .expenseTitle {
-  font-size: var(--font-size-sm);
-  font-weight: 600;
+  font-size: var(--font-size-lg);
+  font-weight: 400;
   color: var(--color-text);
   margin: 0;
 }
 
 .expenseTotal {
-  font-size: var(--font-size-lg);
-  font-weight: 600;
+  font-size: var(--font-size-4xl);
+  font-family: var(--font-serif);
+  font-weight: 400;
   color: var(--color-text);
 }
 
@@ -43,7 +41,7 @@
   align-items: center;
   gap: var(--space-3);
   padding: var(--space-4) 0;
-  border-bottom: 1px solid var(--color-border-light);
+  border-bottom: 1px solid var(--color-border-transparent);
 }
 
 .expenseItem:last-child {
@@ -56,8 +54,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-gray-100);
-  border-radius: var(--radius-md);
   flex-shrink: 0;
   color: var(--color-text-secondary);
 }
@@ -70,21 +66,21 @@
 }
 
 .expenseName {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-lg);
   color: var(--color-text);
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .expenseDate {
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-lg);
   color: var(--color-text-secondary);
   margin-left: auto;
   margin-right: var(--space-3);
 }
 
 .expenseAmount {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-lg);
   color: var(--color-text);
-  font-weight: 600;
+  font-weight: 400;
 }
 

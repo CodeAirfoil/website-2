@@ -126,11 +126,6 @@ const TimelogsChart = ({ data, className = '' }: TimelogsChartProps) => {
 
   return (
     <div className={`${styles.timelogsChart} ${className}`}>
-      {/* Header */}
-      <div className={styles.header}>
-        <h3 className={styles.title}>Timelogs</h3>
-      </div>
-
       {/* Chart Area */}
       <div className={styles.chartArea}>
         <div className={styles.chartContainer}>

@@ -13,7 +13,7 @@ export default function PrivacyPage() {
         subtitle="How we collect, use, and protect your personal information."
       />
       
-      <section style={{ padding: 'var(--space-16) 0' }}>
+      <section style={{ padding: 'var(--space-16) 0', backgroundColor: '#FFFFFF' }}>
         <div style={{ 
           maxWidth: '800px', 
           margin: '0 auto', 

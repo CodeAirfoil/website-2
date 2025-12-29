@@ -30,4 +30,6 @@ export { default as ProposalConversion } from './ProposalConversion'
 export type { ProposalConversionProps } from './ProposalConversion'
 export { default as InvoiceTable } from './InvoiceTable'
 export type { InvoiceTableProps } from './InvoiceTable'
+export { default as Subtasks } from './Subtasks'
+export type { SubtasksProps } from './Subtasks'
  

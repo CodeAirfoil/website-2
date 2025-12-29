@@ -64,11 +64,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  background: var(--color-gray-50);
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-md);
-  padding: var(--space-4);
-  gap: var(--space-4);
+  gap: var(--space-40);
 }
 
 .packageInfo {
@@ -79,8 +75,8 @@
 }
 
 .packageTitle {
-  font-size: var(--font-size-sm);
-  font-weight: 600;
+  font-size: var(--font-size-lg);
+  font-weight: 500;
   color: var(--color-text);
 }
 
@@ -90,13 +86,14 @@
 }
 
 .packageDeliverables {
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
 }
 
 .packageTotal {
-  font-size: var(--font-size-sm);
-  font-weight: 600;
+  font-size: var(--font-size-2xl);
+  font-weight: 400;
+  font-family: var(--font-serif);
   color: var(--color-text);
   white-space: nowrap;
 }
@@ -183,10 +180,8 @@
 
 /* Proposal Card */
 .proposalCard {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-lg);
-  padding: var(--space-6);
+
+  padding: var(--space-8);
   display: flex;
   flex-direction: column;
   gap: var(--space-4);

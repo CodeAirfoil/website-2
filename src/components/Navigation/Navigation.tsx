@@ -55,7 +55,7 @@ const Navigation = () => {
             <a href="/" className={styles.logoLink}>
               <object
                 ref={logoRef}
-                data="/images/logos/airfoil-social-icon-animated.svg"
+                data="/images/logos/airfoil-logo-black.svg"
                 type="image/svg+xml"
                 className={styles.logo}
                 width={23}

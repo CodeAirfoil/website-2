@@ -1,8 +1,5 @@
 .timelogsChart {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
-  padding: var(--space-6);
+  padding: var(--space-8);
   width: 100%;
   overflow: hidden;
   
