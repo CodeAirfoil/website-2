@@ -21,7 +21,6 @@ interface Invoice {
     icon: string
   }
   status: 'paid' | 'refunded' | 'overdue' | 'cancelled' | 'draft'
-  recurring: string
   dueDate: string
   amount: string
 }
@@ -34,7 +33,6 @@ const InvoiceTable = ({ className = '' }: InvoiceTableProps) => {
       client: { name: 'Chris Reed', avatar: '/images/avatar.png' },
       project: { name: 'Landing Page', icon: 'sparkle' },
       status: 'overdue',
-      recurring: '-',
       dueDate: 'Jan 18, 2026',
       amount: '$960.00'
     },
@@ -44,7 +42,6 @@ const InvoiceTable = ({ className = '' }: InvoiceTableProps) => {
       client: { name: 'Evan Morales', avatar: '/images/avatar.png' },
       project: { name: 'Poster Design', icon: 'confetti' },
       status: 'paid',
-      recurring: '-',
       dueDate: 'Jan 18, 2026',
       amount: '$1,500.00'
     },
@@ -54,7 +51,6 @@ const InvoiceTable = ({ className = '' }: InvoiceTableProps) => {
       client: { name: 'Jordan Whitman', avatar: '/images/avatar.png' },
       project: { name: 'Website & App', icon: 'dice' },
       status: 'refunded',
-      recurring: 'Monthly',
       dueDate: 'Jan 14, 2026',
       amount: '$1,925.00'
     }
@@ -105,16 +101,13 @@ const InvoiceTable = ({ className = '' }: InvoiceTableProps) => {
               return (
                 <tr key={invoice.id}>
                   <td className={styles.idColumn}>{invoice.id}</td>
+                  <td className={styles.dateColumn}>Due: {invoice.dueDate}</td>
                   <td>
                     <div className={`${styles.statusBadge} ${statusConfig.className}`}>
                       {statusConfig.icon}
                       <span>{statusConfig.label}</span>
                     </div>
                   </td>
-                  <td className={styles.recurringColumn}>
-                    {invoice.recurring !== '-' ? invoice.recurring : '-'}
-                  </td>
-                  <td className={styles.dateColumn}>{invoice.dueDate}</td>
                   <td className={styles.amountColumn}>{invoice.amount}</td>
                 </tr>
               )

@@ -43,7 +43,7 @@
 .mainSubtitle {
   font-size: var(--font-size-lg);
   line-height: 1.6;
-  color: var(--color-text-secondary);
+  color: var(--color-text-blended-dark);
   margin: 0;
   max-width: 400px;
 }
@@ -62,7 +62,7 @@
   font-size: var(--font-size-4xl);
   font-weight: 300;
   font-family: var(--font-serif);
-  color: #00000040;
+  color: var(--color-text-blended-dark);
   cursor: pointer;
   transition: all 0.2s ease;
   display: flex;

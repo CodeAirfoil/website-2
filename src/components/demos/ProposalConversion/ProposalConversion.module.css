@@ -66,7 +66,7 @@
 
 .itemLabel {
   font-size: var(--font-size-xs);
-  color: var(--color-text-secondary);
+  color: var(--color-text-blended-dark);
 }
 
 .itemValue {
@@ -120,7 +120,7 @@
 
 .projectItem svg {
   flex-shrink: 0;
-  color: var(--color-text-secondary);
+  color: var(--color-text-blended-dark);
   margin-top: 2px;
 }
 
@@ -139,7 +139,7 @@
 
 .projectItemDesc {
   font-size: var(--font-size-xs);
-  color: var(--color-text-secondary);
+  color: var(--color-text-blended-dark);
   line-height: 1.4;
 }
 

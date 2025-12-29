@@ -20,7 +20,6 @@ const Expenses = ({ className = '' }: ExpensesProps) => {
             <div className={styles.expenseDetails}>
               <span className={styles.expenseName}>Software License</span>
             </div>
-            <span className={styles.expenseDate}>Jan 15, 2024</span>
             <span className={styles.expenseAmount}>$299.00</span>
           </div>
           <div className={styles.expenseItem}>
@@ -30,7 +29,6 @@ const Expenses = ({ className = '' }: ExpensesProps) => {
             <div className={styles.expenseDetails}>
               <span className={styles.expenseName}>Client Meeting</span>
             </div>
-            <span className={styles.expenseDate}>Jan 12, 2024</span>
             <span className={styles.expenseAmount}>$45.00</span>
           </div>
           <div className={styles.expenseItem}>
@@ -40,7 +38,6 @@ const Expenses = ({ className = '' }: ExpensesProps) => {
             <div className={styles.expenseDetails}>
               <span className={styles.expenseName}>Travel</span>
             </div>
-            <span className={styles.expenseDate}>Jan 10, 2024</span>
             <span className={styles.expenseAmount}>$901.00</span>
           </div>
           <div className={styles.expenseItem}>
@@ -50,7 +47,6 @@ const Expenses = ({ className = '' }: ExpensesProps) => {
             <div className={styles.expenseDetails}>
               <span className={styles.expenseName}>Internet & Phone</span>
             </div>
-            <span className={styles.expenseDate}>Jan 8, 2024</span>
             <span className={styles.expenseAmount}>$89.99</span>
           </div>
         </div>

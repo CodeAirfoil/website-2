@@ -3,8 +3,10 @@
 import { useState, useRef, useEffect } from 'react'
 import styles from './Navigation.module.css'
 import shared from '../../styles/shared.module.css'
+import { useDarkMode } from '@/contexts/DarkModeContext'
 
 const Navigation = () => {
+  const { isDark } = useDarkMode()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isDownloadOpen, setIsDownloadOpen] = useState(false)
   const logoRef = useRef<HTMLObjectElement>(null)
@@ -44,7 +46,8 @@ const Navigation = () => {
         logoElement.removeEventListener('mouseenter', handleLogoHover)
       }
     }
-  }, [])
+  }, [isDark])
+
 
   return (
     <nav className={styles.nav}>
@@ -54,8 +57,9 @@ const Navigation = () => {
           <div className={styles.navLogo}>
             <a href="/" className={styles.logoLink}>
               <object
+                key={isDark ? 'dark' : 'light'}
                 ref={logoRef}
-                data="/images/logos/airfoil-logo-black.svg"
+                data={isDark ? "/images/logos/airfoil-logo-white.svg" : "/images/logos/airfoil-logo-black.svg"}
                 type="image/svg+xml"
                 className={styles.logo}
                 width={23}

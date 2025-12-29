@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import styles from './ClientTags.module.css'
 
 export interface ClientTag {
@@ -24,12 +25,6 @@ const ClientTags = ({ clients, className = '' }: ClientTagsProps) => {
       icon: 'target'
     },
     {
-      id: '2',
-      name: 'Fathom Analytics Group',
-      color: 'red',
-      icon: 'star'
-    },
-    {
       id: '3',
       name: 'OrbitPay',
       color: 'purple',
@@ -48,58 +43,47 @@ const ClientTags = ({ clients, className = '' }: ClientTagsProps) => {
   const getIcon = (icon: string) => {
     switch (icon) {
       case 'target':
+        // Evergro Farms
         return (
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-            <circle cx="12" cy="12" r="10" fill="#6B7280"/>
-            <circle cx="12" cy="12" r="4" fill="white"/>
-          </svg>
-        )
-      case 'star':
-        return (
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-            <circle cx="12" cy="12" r="10" fill="#92400E"/>
-            <path d="M12 4l2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5L12 4z" fill="white"/>
-          </svg>
+          <Image
+            src="/images/company-icons/logoipsum-392.svg"
+            alt=""
+            width={16}
+            height={16}
+            className={styles.logoImage}
+          />
         )
       case 'gear':
+        // OrbitPay
         return (
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-            <circle cx="12" cy="12" r="10" fill="#7C3AED"/>
-            <path d="M12 6l1.5 1.5L15 6l1.5 1.5L18 9l-1.5 1.5L18 12l-1.5 1.5L15 15l-1.5-1.5L12 15l-1.5-1.5L9 15l-1.5-1.5L6 12l1.5-1.5L6 9l1.5-1.5L9 6l1.5 1.5L12 6z" fill="white"/>
-          </svg>
+          <Image
+            src="/images/company-icons/logoipsum-396.svg"
+            alt=""
+            width={16}
+            height={16}
+            className={styles.logoImage}
+          />
         )
       case 'profile':
+        // John Smith
         return (
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-            <circle cx="12" cy="12" r="10" fill="#6B7280"/>
-            <circle cx="12" cy="9" r="3" fill="white"/>
-            <path d="M6 20c0-3.3 2.7-6 6-6s6 2.7 6 6" fill="white"/>
-          </svg>
+          <Image
+            src="/images/company-icons/logoipsum-411.svg"
+            alt=""
+            width={16}
+            height={16}
+            className={styles.logoImage}
+          />
         )
       default:
         return null
     }
   }
 
-  const getColorClass = (color: string) => {
-    switch (color) {
-      case 'blue':
-        return styles.blueTag
-      case 'red':
-        return styles.redTag
-      case 'purple':
-        return styles.purpleTag
-      case 'grey':
-        return styles.greyTag
-      default:
-        return styles.greyTag
-    }
-  }
-
   return (
     <div className={`${styles.clientTags} ${className}`}>
       {clientData.map((client) => (
-        <div key={client.id} className={`${styles.clientTag} ${getColorClass(client.color)}`}>
+        <div key={client.id} className={styles.clientTag}>
           <div className={styles.tagIcon}>
             {getIcon(client.icon)}
           </div>

@@ -1,19 +1,15 @@
 .clientTags {
-  gap: 8px;
   width: 100%;
 }
+
 
 .clientTag {
   display: flex;
   align-items: center;
   gap: var(--space-4);
-  padding: var(--space-4);
+  padding: var(--space-6) var(--space-8);
   transition: all 0.2s ease;
-}
-
-.clientTag:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: var(--color-background-transparent);
 }
 
 .tagIcon {
@@ -21,53 +17,31 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  width: 16px;
+  height: 16px;
 }
 
 .tagIcon svg {
   width: 16px;
   height: 16px;
+  color: var(--color-text-secondary);
+}
+
+.logoImage {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  object-fit: contain;
 }
 
 .tagName {
-  font-size: var(--font-size-sm);
-  font-weight: 500;
+  font-size: var(--font-size-base);
+  font-weight: 400;
+  color: var(--color-text);
   line-height: 1.2;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-/* Color variants */
-.blueTag {
-  background: #dbeafe;
-}
-
-.blueTag .tagName {
-  color: #1e40af;
-}
-
-.redTag {
-  background: #fecaca;
-}
-
-.redTag .tagName {
-  color: #92400e;
-}
-
-.purpleTag {
-  background: #e9d5ff;
-}
-
-.purpleTag .tagName {
-  color: #7c3aed;
-}
-
-.greyTag {
-  background: #f3f4f6;
-}
-
-.greyTag .tagName {
-  color: #6b7280;
 }
 
 /* Responsive adjustments */

@@ -40,7 +40,7 @@
 .heroSubtitle {
   font-size: var(--font-size-md);
   line-height: 1.6;
-  color: var(--color-text-secondary);
+  color: var(--color-text-blended-dark);
   margin-bottom: var(--space-4);
   text-align: center;
   max-width: 600px;

@@ -26,7 +26,6 @@
   align-items: center;
   position: relative;
   z-index: 1;
-  border-bottom: 1px solid var(--color-border);
 }
 
 
@@ -43,9 +42,9 @@
 .heroSubtitle {
   font-size: var(--font-size-xl);
   line-height: 1.6;
-  color: var(--color-text-secondary);
+  color: var(--color-text-blended-dark);
   margin-bottom: var(--space-8);
-  text-align: left;
+  text-align: center;
   width: 600px;
 }
 

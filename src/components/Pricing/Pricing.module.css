@@ -95,12 +95,12 @@
 
 .period {
   font-size: var(--font-size-lg);
-  color: var(--color-text-secondary);
+  color: var(--color-text-blended-dark);
   font-weight: 400;
 }
 
 .tierDescription {
-  color: var(--color-text-secondary);
+  color: var(--color-text-blended-dark);
   font-size: var(--font-size-base);
   line-height: 1.6;
 }
@@ -150,7 +150,7 @@
 
 .toggleLabel {
   font-size: var(--font-size-xs);
-  color: var(--color-text-secondary);
+  color: var(--color-text-blended-dark);
   font-weight: 500;
 }
 
@@ -196,7 +196,7 @@
 }
 
 .footerText {
-  color: var(--color-text-secondary);
+  color: var(--color-text-blended-dark);
   font-size: var(--font-size-base);
   margin: 0;
   padding: var(--space-12) 0;

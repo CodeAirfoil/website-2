@@ -48,7 +48,7 @@
 .userName {
   font-size: var(--font-size-xs);
   font-weight: 600;
-  color: var(--color-text-secondary);
+  color: var(--color-text-blended-dark);
 }
 
 .navigation {
@@ -87,7 +87,7 @@
   padding: var(--space-2) var(--space-3);
   border-radius: var(--radius-md);
   font-size: var(--font-size-xs);
-  color: var(--color-text-secondary);
+  color: var(--color-text-blended-dark);
   font-weight: 500;
   transition: all 0.2s ease;
 }
@@ -99,14 +99,14 @@
 
 /* Timer Widget */
 .timerWidget {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
+  background: var(--color-background-transparent);
   border-radius: var(--radius-md);
   padding: var(--space-4);
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
   margin-top: auto;
+  border: 1px solid var(--color-border-transparent);
 }
 
 .timerHeader {
@@ -143,7 +143,7 @@
 .timerStatusText {
   font-size: var(--font-size-xs);
   font-weight: 500;
-  color: var(--color-text-secondary);
+  color: var(--color-text-blended-dark);
 }
 
 .timerDisplay {
@@ -320,8 +320,9 @@
   padding: var(--space-4);
   display: flex;
   flex-direction: column;
+  border: 1px solid var(--color-border-transparent);
   gap: var(--space-5);
-  
+  background: var(--color-background-transparent);
   justify-content: space-between;
 }
 
@@ -334,13 +335,13 @@
 .statTitle {
   font-size: var(--font-size-xs);
   font-weight: 500;
-  color: var(--color-text-secondary);
+  color: var(--color-text-blended-dark);
   margin: 0;
 }
 
 .statValue {
   font-size: var(--font-size-base);
-  font-weight: 600;
+  font-weight: 500;
   color: var(--color-text);
   line-height: 1;
 }
@@ -361,17 +362,17 @@
 
 .progressFill {
   height: 100%;
-  background: var(--color-yellow-600);
+  background: var(--color-brand-blue-dark);
   border-radius: var(--radius-sm);
   transition: width 0.3s ease;
 }
 
 .progressFill.blue {
-  background: var(--color-yellow-600);
+  background: var(--color-brand-blue-dark);
 }
 
 .progressFill.grey {
-  background: var(--color-yellow-600);
+  background: var(--color-brand-blue-dark);
 }
 
 .statDescription {
@@ -411,7 +412,7 @@
 }
 
 .dayBar {
-  background: var(--color-yellow-600);
+  background: var(--color-brand-blue-dark);
   height: 100%;
   animation: fadeInBar 0.8s ease-out forwards;
   opacity: 0;
@@ -440,7 +441,7 @@
 .sectionTitle {
   font-size: var(--font-size-xs);
   font-weight: 600;
-  color: var(--color-text-secondary);
+  color: var(--color-text-blended-dark);
   margin: 0;
 }
 

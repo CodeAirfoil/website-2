@@ -11,10 +11,9 @@
   display: flex;
   align-items: center;
   gap: var(--space-2);
-  padding: var(--space-3) var(--space-4);
-  background: var(--color-background);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-background-transparent);
+  border-radius: var(--radius-lg);
   font-size: var(--font-size-sm);
 }
 
@@ -32,9 +31,9 @@
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 2px;
+  width: 0;
   height: 20px;
-  background: var(--color-border);
+  border-left: 2px dashed var(--color-border-transparent);
 }
 
 .horizontalLine {
@@ -42,8 +41,8 @@
   top: 20px;
   left: 25%;
   width: 50%;
-  height: 2px;
-  background: var(--color-border);
+  height: 0;
+  border-top: 2px dashed var(--color-border-transparent);
 }
 
 .leftBranch {
@@ -51,9 +50,9 @@
   top: 20px;
   left: 25%;
   transform: translateX(-50%);
-  width: 2px;
+  width: 0;
   height: 20px;
-  background: var(--color-border);
+  border-left: 2px dashed var(--color-border-transparent);
 }
 
 .rightBranch {
@@ -61,9 +60,9 @@
   top: 20px;
   left: 75%;
   transform: translateX(-50%);
-  width: 2px;
+  width: 0;
   height: 20px;
-  background: var(--color-border);
+  border-left: 2px dashed var(--color-border-transparent);
 }
 
 .subtasksContainer {
@@ -78,14 +77,13 @@
   align-items: center;
   gap: var(--space-2);
   padding: var(--space-2) var(--space-3);
-  background: var(--color-background);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  font-size: var(--font-size-xs);
+  background: var(--color-background-transparent);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-sm);
 }
 
 .taskIcon {
-  color: var(--color-text-secondary);
+  color: var(--color-text-blended-dark);
   flex-shrink: 0;
   display: block;
 }

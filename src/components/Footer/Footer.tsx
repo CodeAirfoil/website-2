@@ -1,5 +1,6 @@
 import styles from './Footer.module.css'
 import shared from '../../styles/shared.module.css'
+import DarkModeToggle from '../DarkModeToggle'
 
 const Footer = () => {
   return (
@@ -47,6 +48,7 @@ const Footer = () => {
               © 2026 Airfoil. All rights reserved.
             </p>
             <div className={styles.footerBottomLinks}>
+              <DarkModeToggle />
               <a href="mailto:hello@airfoil.app" className={styles.footerLink}>hello@airfoil.app</a>
               <a href="/privacy" className={styles.footerLink}>Privacy Policy</a>
               <a href="/terms" className={styles.footerLink}>Terms of Service</a>

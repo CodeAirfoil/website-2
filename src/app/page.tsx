@@ -14,8 +14,8 @@ export default function Home() {
       content: (
         <div className={styles.sectionContainer}>
           <div className={`${styles.contentCard} ${styles.cardWide}`}>
-            <div className={styles.cardContent}>
-              <h3 className={styles.cardTitle}>Track progress with clarity</h3>
+          <div className={styles.cardContent}>
+            <h3 className={styles.cardTitle}>Track progress with clarity</h3>
               <p className={styles.cardDescription}>Monitor revenue, milestones, and task insights—all in one glance. Create unlimited projects with custom budgets and timelines, and track progress with visual status indicators.</p>
             </div>
             <ProjectStats />
@@ -69,11 +69,11 @@ export default function Home() {
       content: (
         <div className={styles.sectionContainer}>
           <div className={`${styles.contentCard} ${styles.cardHalf}`}>
-            <div className={styles.cardContent}>
-              <h3 className={styles.cardTitle}>Task Management</h3>
-              <p className={styles.cardDescription}>Stay on top of everything that needs to get done with powerful task management features. Create tasks with priorities, due dates, and time estimates, then organize them in List view or visual Kanban boards.</p>
-            </div>
-            <div className={styles.taskCardsStack}>
+          <div className={styles.cardContent}>
+              <h3 className={styles.cardTitle}>Organize & Prioritize Tasks</h3>
+              <p className={styles.cardDescription}>Create and manage tasks with priorities, due dates, and time estimates. Organize work in List view or visual Kanban boards, track progress, and never miss a deadline with smart task organization tools.</p>
+          </div>
+          <div className={styles.taskCardsStack}>
               <TaskCard
                 title="Website Redesign for Coffee Shop"
                 description="Complete redesign of the website for 'Brew & Bean Coffee Co' including new branding and e-commerce functionality"
@@ -83,21 +83,21 @@ export default function Home() {
                 priority="high"
                 category="Design"
               />
-              <TaskCard
-                title="Mobile App Development"
-                description="Build a cross-platform mobile app for fitness tracking with real-time data synchronization"
-                progress={{ completed: 3, total: 5 }}
-                dueDate="5 Days"
-                status="completed"
-                priority="medium"
-                category="Development"
-              />
+            <TaskCard
+              title="Mobile App Development"
+              description="Build a cross-platform mobile app for fitness tracking with real-time data synchronization"
+              progress={{ completed: 3, total: 5 }}
+              dueDate="5 Days"
+              status="completed"
+              priority="medium"
+              category="Development"
+            />
             </div>
           </div>
           <div className={`${styles.contentCard} ${styles.cardHalf}`}>
             <div className={styles.cardContent}>
-              <h3 className={styles.cardTitle}>Advanced Features</h3>
-              <p className={styles.cardDescription}>Powerful tools for complex workflows that scale with your business. Filter and sort by status, priority, project, or deadline, and use drag-and-drop organization to reprioritize on the fly.</p>
+              <h3 className={styles.cardTitle}>Task Filters & Organization</h3>
+              <p className={styles.cardDescription}>Powerful filtering and sorting tools to manage complex workflows. Filter tasks by status, priority, project, or deadline, use drag-and-drop to reprioritize instantly, and organize your work exactly how you need it.</p>
               <div className={styles.reminderTags}>
                 <div className={styles.tags}>
                   <div className={styles.tag}>
@@ -148,15 +148,15 @@ export default function Home() {
         <div className={styles.sectionContainer}>
           <div className={`${styles.contentCard} ${styles.cardHalf}`}>
             <div className={styles.cardContent}>
-              <h3 className={styles.cardTitle}>Time Tracking</h3>
-              <p className={styles.cardDescription}>Track time as you work with precision and ease. Use the built-in timer or add manual time entries, then associate them with specific tasks and projects.</p>
+              <h3 className={styles.cardTitle}>Track Time & Billable Hours</h3>
+              <p className={styles.cardDescription}>Record every minute of work with built-in timers or manual entries. Associate time with specific tasks and projects, mark hours as billable or non-billable, and ensure accurate billing for all your work.</p>
             </div>
             <Timer />
           </div>
           <div className={`${styles.contentCard} ${styles.cardHalf}`}>
             <div className={styles.cardContent}>
-              <h3 className={styles.cardTitle}>Time Analytics</h3>
-              <p className={styles.cardDescription}>Visualize your productivity and understand how you spend your time. View time breakdowns by day, week, or month with beautiful charts, and export timesheets for client reporting.</p>
+              <h3 className={styles.cardTitle}>Time Reports & Insights</h3>
+              <p className={styles.cardDescription}>Analyze your time usage with detailed reports and visual charts. See how time is distributed across projects, identify productivity patterns, and export professional timesheets for client billing and reporting.</p>
             </div>
             <TimelogsChart />
           </div>
@@ -194,21 +194,21 @@ export default function Home() {
         <div className={styles.sectionContainer}>
           <div className={`${styles.contentCard} ${styles.cardWide}`}>
             <div className={styles.cardContent}>
-              <h3 className={styles.cardTitle}>Professional Invoicing</h3>
-              <p className={styles.cardDescription}>Create and send professional invoices in minutes with our intuitive invoicing system. Track invoice status from draft to sent, paid, or overdue, and automatically calculate taxes and fees.</p>
+              <h3 className={styles.cardTitle}>Invoice Management & Tracking</h3>
+              <p className={styles.cardDescription}>Create, send, and manage all your invoices from one central dashboard. Track payment status in real-time, see which invoices are paid or overdue, and get paid faster with automatic payment reminders.</p>
             </div>
             <InvoiceTable />
           </div>
           <div className={`${styles.contentCard} ${styles.cardWide}`}>
             <div className={styles.cardContent}>
-              <h3 className={styles.cardTitle}>Seamless Payments</h3>
-              <p className={styles.cardDescription}>Get paid faster with integrated payment processing powered by Stripe. Add automatic payment links to every invoice, accept credit cards and bank transfers, and send automatic payment reminders for overdue invoices.</p>
+              <h3 className={styles.cardTitle}>Payment Processing & Collection</h3>
+              <p className={styles.cardDescription}>Get paid faster with integrated Stripe payment processing. Accept credit cards and bank transfers directly through your invoices, add automatic payment links, and send reminders for overdue payments to improve cash flow.</p>
             </div>
             <Invoice />
           </div>
           <div className={`${styles.contentCard} ${styles.cardWide}`}>
             <div className={styles.cardContent}>
-              <h3 className={styles.cardTitle}>Expense Tracking</h3>
+              <h3 className={styles.cardTitle}>Business Expense Management</h3>
               <p className={styles.cardDescription}>Track all your business expenses in one place. Categorize expenses, attach receipts, and monitor spending to keep your finances organized and tax-ready.</p>
             </div>
             <Expenses />
@@ -224,10 +224,22 @@ export default function Home() {
         <div className={styles.sectionContainer}>
           <div className={`${styles.contentCard} ${styles.cardWide}`}>
             <div className={styles.cardContent}>
-              <h3 className={styles.cardTitle}>Professional Proposals</h3>
-              <p className={styles.cardDescription}>Win more work with beautiful, professional proposals that impress clients. Create detailed proposals with line items and pricing, add custom terms and conditions, and track proposal status from sent to viewed, accepted, or rejected.</p>
+              <h3 className={styles.cardTitle}>Create & Send Proposals</h3>
+              <p className={styles.cardDescription}>Build professional proposals that win more business. Create detailed proposals with line items, pricing, and deliverables, customize terms and conditions, and track status from sent to viewed, accepted, or rejected.</p>
             </div>
             <Proposal />
+          </div>
+          <div className={`${styles.contentCard} ${styles.cardHalf}`}>
+            <div className={styles.cardContent}>
+              <h3 className={styles.cardTitle}>Auto-Convert to Projects</h3>
+              <p className={styles.cardDescription}>Seamlessly transform accepted proposals into active projects with a single click. All proposal details, deliverables, and pricing automatically populate your new project, saving time and ensuring nothing gets lost in translation.</p>
+            </div>
+          </div>
+          <div className={`${styles.contentCard} ${styles.cardHalf}`}>
+            <div className={styles.cardContent}>
+              <h3 className={styles.cardTitle}>AI-Powered Proposal Generation</h3>
+              <p className={styles.cardDescription}>Generate professional proposals in seconds using AI. Simply describe your project requirements in a prompt, and watch as AI creates a comprehensive proposal with line items, pricing, and deliverables tailored to your client's needs.</p>
+            </div>
           </div>
         </div>
       )
@@ -238,17 +250,10 @@ export default function Home() {
       activeBgColor: 'var(--color-brand-lavender)',
       content: (
         <div className={styles.sectionContainer}>
-          <div className={`${styles.contentCard} ${styles.cardHalf}`}>
+          <div className={`${styles.contentCard} ${styles.cardWide}`}>
             <div className={styles.cardContent}>
-              <h3 className={styles.cardTitle}>See the big picture</h3>
-              <p className={styles.cardDescription}>Visualize your project timeline at a glance with interactive Gantt charts. Create project milestones with costs and deadlines, and track milestone completion with visual progress indicators.</p>
-            </div>
-            <GanttChart />
-          </div>
-          <div className={`${styles.contentCard} ${styles.cardHalf}`}>
-            <div className={styles.cardContent}>
-              <h3 className={styles.cardTitle}>Budget & Timeline Control</h3>
-              <p className={styles.cardDescription}>Stay on track and on budget with powerful project management tools. Allocate budgets per milestone to control spending, and adjust timelines with intuitive drag-and-drop controls.</p>
+              <h3 className={styles.cardTitle}>Project Timeline & Milestones</h3>
+              <p className={styles.cardDescription}>Visualize your entire project timeline with interactive Gantt charts. Create milestones with costs and deadlines, track completion with visual progress indicators, and see how all your projects align across time.</p>
             </div>
             <GanttChart />
           </div>

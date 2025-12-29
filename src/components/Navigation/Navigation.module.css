@@ -1,5 +1,5 @@
 .nav {
-  background: #ffffff34;
+  background: var(--color-background-nav);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   position: fixed;
@@ -67,7 +67,7 @@
 .navLink {
   font-size: var(--font-size-sm);
   font-weight: 400;
-  color: var(--color-text-secondary);
+  color: var(--color-text-blended-dark);
   transition: color 0.2s ease;
 }
 
@@ -84,7 +84,7 @@
 .loginLink {
   font-size: var(--font-size-sm);
   font-weight: 400;
-  color: var(--color-text-secondary);
+  color: var(--color-text-blended-dark);
   text-decoration: none;
   transition: color 0.2s ease;
 }
@@ -148,7 +148,7 @@
 }
 
 .downloadOption svg {
-  color: var(--color-text-secondary);
+  color: var(--color-text-blended-dark);
 }
 
 .mobileMenuBtn {
@@ -157,7 +157,7 @@
   justify-content: center;
   width: 40px;
   height: 40px;
-  color: var(--color-text-secondary);
+  color: var(--color-text-blended-dark);
   border-radius: var(--radius-sm);
   background: none;
   border: none;

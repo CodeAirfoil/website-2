@@ -1,7 +1,6 @@
 .ganttChart {
-  background: white;
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
+
+
   overflow: hidden;
   width: 100%;
   
@@ -9,8 +8,8 @@
 
 .header {
   display: flex;
-  border-bottom: 1px solid var(--color-border);
-  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border-transparent);
+  border-top: 1px solid var(--color-border-transparent);
 }
 
 .taskHeader {
@@ -18,9 +17,9 @@
   min-width: 200px;
   padding: 12px 16px;
   font-weight: 600;
-  color: var(--color-text-secondary);
+  color: var(--color-text-blended-dark);
   font-size: var(--font-size-sm);
-  border-right: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border-transparent);
 }
 
 .timelineHeader {
@@ -33,7 +32,7 @@
   padding: 12px 8px;
   text-align: center;
   font-size: var(--font-size-xs);
-  color: var(--color-text-secondary);
+  color: var(--color-text-blended-dark);
   font-weight: 500;
   min-width: 60px;
 }
@@ -50,8 +49,7 @@
 .taskList {
   width: 200px;
   min-width: 200px;
-  border-right: 1px solid var(--color-border);
-  background: var(--color-surface);
+  border-right: 1px solid var(--color-border-transparent);
 }
 
 .taskRow {
@@ -65,7 +63,7 @@
 }
 
 .taskName {
-  padding: 0 16px;
+  padding: 0 var(--space-6);
   font-size: var(--font-size-sm);
   color: var(--color-text);
   font-weight: 400;
@@ -78,7 +76,6 @@
 .timelineGrid {
   flex: 1;
   position: relative;
-  background: var(--color-surface);
   display: flex;
 }
 
@@ -87,9 +84,6 @@
   min-height: 100%;
 }
 
-.weekColumn:nth-child(odd) {
-  background: var(--color-gray-100);
-}
 
 .weekColumn:last-child {
   border-right: none;
@@ -106,7 +100,7 @@
 .taskBarContent {
   width: 100%;
   height: 100%;
-  background: var(--color-yellow-600);
+  background: var(--color-brand-blue-dark);
   border-radius: 4px;
   position: relative;
 }

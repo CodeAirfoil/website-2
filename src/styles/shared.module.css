@@ -32,9 +32,8 @@
 }
 
 .btnSecondary {
-  background: var(--color-surface);
+  background: var(--color-hover);
   color: var(--color-text);
-  border-color: var(--color-border);
   box-shadow: none;
 }
 

@@ -72,7 +72,7 @@
   border: none;
   padding: 4px;
   border-radius: 4px;
-  color: var(--color-text-secondary);
+  color: var(--color-text-blended-dark);
   cursor: pointer;
   transition: all 0.2s ease;
   display: flex;
@@ -104,7 +104,7 @@
 
 .fileDetails {
   font-size: var(--font-size-xs);
-  color: var(--color-text-secondary);
+  color: var(--color-text-blended-dark);
   margin: 0;
   line-height: 1.2;
 }
